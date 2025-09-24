@@ -1,0 +1,9181 @@
+/* Custom Ant Design Styles *//* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+/* Mobile responsiveness for Ant Design components *//* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+@media (max-width: 768px) {/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+  .ant-layout-header .desktop-menu {/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+    display: none !important;/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+  }/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+  .ant-layout-header .user-name {/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+    display: none !important;/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+  }/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+  .ant-card {/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+    margin-bottom: 16px;/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+  }/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+}/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+@media (min-width: 769px) {/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+  .ant-layout-header .mobile-menu-btn {/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+    display: none !important;/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+  }/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+}/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+/* Custom button hover effects *//* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+.ant-btn-primary:hover {/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+  transform: translateY(-1px);/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+  box-shadow: 0 4px 12px rgba(22, 119, 255, 0.3);/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+}/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+.ant-card:hover {/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+  transform: translateY(-2px);/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+}/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+/* Custom card styles *//* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+.ant-card {/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+  transition: all 0.3s ease;/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+  border-radius: 12px;/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+}/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+/* Custom form styles *//* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+.ant-form-item-label > label {/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+  font-weight: 600;/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+  color: #262626;/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+}/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+/* Smooth transitions *//* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+* {/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+  transition: all 0.2s ease;/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+}/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+/* Hero section gradient fix for older browsers *//* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+.hero-gradient {/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+  background: linear-gradient(135deg, #1677ff 0%, #722ed1 100%);/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+  background: -webkit-linear-gradient(135deg, #1677ff 0%, #722ed1 100%);/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+  background: -moz-linear-gradient(135deg, #1677ff 0%, #722ed1 100%);/* SAI Travel Custom Styles */
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #FF7043;
+  --color-accent-1: #FFC107;
+  --color-accent-2: #26C6DA;
+  --color-neutral-dark: #263238;
+  --color-neutral-light: #F5F5F5;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-white: #FFFFFF;
+}
+
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    padding: 32px;
+  }
+}
+
+/* Mobile menu button visibility */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+  
+  /* Adjust content margins on mobile */
+  .ant-layout-content {
+    margin: 8px !important;
+    padding: 16px !important;
+  }
+  
+  /* Make cards stack on mobile */
+  .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  /* Smaller font sizes on mobile */
+  .ant-typography h2 {
+    font-size: 20px !important;
+  }
+  
+  .ant-typography h3 {
+    font-size: 18px !important;
+  }
+  
+  .ant-typography h4 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .ant-layout-header {
+    padding: 0 12px !important;
+  }
+  
+  .ant-card-body {
+    padding: 16px !important;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px !important;
+  }
+}
+
+/* Custom scrollbar styles */
+.ant-layout-sider-children::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-track {
+  background: var(--color-neutral-light);
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.ant-layout-sider-children::-webkit-scrollbar-thumb:hover {
+  background: #00796B;
+}
+
+/* Hover effects for cards */
+.ant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Custom button styles */
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #00796B !important;
+  border-color: #00796B !important;
+}
+
+/* Menu item hover effects */
+.ant-menu-item:hover {
+  background-color: rgba(0, 150, 136, 0.08) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(0, 150, 136, 0.1) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Loading spinner customization */
+.ant-spin-dot-item {
+  background-color: var(--color-primary) !important;
+}
+
+/* Drawer customization for mobile */
+.mobile-drawer .ant-drawer-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-light);
+}
+
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+/* Responsive text alignment */
+@media (max-width: 576px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+/* Custom focus styles */
+.ant-btn:focus,
+.ant-menu-item:focus {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+}
