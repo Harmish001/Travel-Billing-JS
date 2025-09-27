@@ -20,6 +20,22 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Progressive Web App (PWA)
+
+This application is configured as a Progressive Web App. When accessed on mobile devices, users will be prompted to install the application on their home screen for a native app-like experience.
+
+### Features
+- Installable on mobile devices (Android & iOS)
+- Works offline (with service worker)
+- App-like experience with standalone display mode
+- Fast loading with cached assets
+
+### Development vs Production
+PWA features are disabled in development mode. To test PWA functionality:
+1. Build the application: `npm run build`
+2. Start the production server: `npm run start`
+3. Access the application on a mobile device
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

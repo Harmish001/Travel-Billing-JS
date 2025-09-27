@@ -26,6 +26,7 @@ import {
 import { useAuth } from "@/src/context/AuthContext";
 import { useRouter } from "next/navigation";
 import { themeColors } from "@/src/styles/theme";
+import InstallPrompt from "@/src/components/PWA/InstallPrompt";
 
 const { Header, Sider, Content } = Layout;
 const { Text } = Typography;
@@ -313,6 +314,9 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({
       >
         <SidebarContent />
       </Drawer>
+
+      {/* PWA Install Prompt */}
+      <InstallPrompt />
 
       <style jsx global>{`
         /* Mobile-specific styles */
