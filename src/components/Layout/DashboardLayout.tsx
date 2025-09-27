@@ -21,6 +21,7 @@ import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
   SettingOutlined,
+  CarOutlined
 } from "@ant-design/icons";
 import { useAuth } from "@/src/context/AuthContext";
 import { useRouter } from "next/navigation";
@@ -64,9 +65,9 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({
       },
     },
     {
-      key: "vehicle",
-      icon: <FileTextOutlined />,
-      label: "Vehicle",
+      key: "vehicles",
+      icon: <CarOutlined />,
+      label: "Vehicles",
       onClick: () => {
         router.push("/vehicles");
         setMobileMenuVisible(false);

@@ -160,13 +160,6 @@
   }
 }
 
-/* Custom focus styles */
-.ant-btn:focus,
-.ant-menu-item:focus {
-  outline: 2px solid var(--color-accent-2);
-  outline-offset: 2px;
-}
-
 /* ====== DROPDOWN FIXES ====== */
 /* Fix dropdown positioning and z-index issues */
 .ant-select-dropdown,

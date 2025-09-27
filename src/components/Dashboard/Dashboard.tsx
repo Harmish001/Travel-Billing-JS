@@ -11,11 +11,13 @@ import {
 } from '@ant-design/icons';
 import { useAuth } from '@/src/context/AuthContext';
 import { themeColors } from '@/src/styles/theme';
+import { useRouter } from 'next/navigation';
 
 const { Title, Paragraph } = Typography;
 
 const Dashboard: React.FC = () => {
   const { user } = useAuth();
+  const router = useRouter();
 
   // Mock data for dashboard statistics
   const stats = [
@@ -52,8 +54,7 @@ const Dashboard: React.FC = () => {
       description: 'Generate a new invoice for your clients',
       icon: <FileTextOutlined style={{ fontSize: 24, color: themeColors.primary }} />,
       action: () => {
-        // TODO: Navigate to invoice creation
-        console.log('Create new invoice');
+        router.push('/invoice/add');
       },
     },
     {
@@ -61,8 +62,7 @@ const Dashboard: React.FC = () => {
       description: 'Manage and view all your invoices',
       icon: <FileTextOutlined style={{ fontSize: 24, color: themeColors.secondary }} />,
       action: () => {
-        // TODO: Navigate to invoice list
-        console.log('View all invoices');
+        router.push('/invoice');
       },
     },
   ];

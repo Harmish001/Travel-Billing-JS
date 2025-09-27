@@ -3,16 +3,16 @@
 import React from 'react';
 import AuthGuard from '@/src/components/Auth/AuthGuard';
 import DashboardLayout from '@/src/components/Layout/DashboardLayout';
-import InvoiceManagement from '@/src/components/Invoice/InvoiceManagement';
+import InvoiceGenerator from '@/src/components/Invoice/Invoice';
 
-const InvoicePage: React.FC = () => {
+const AddInvoicePage: React.FC = () => {
   return (
     <AuthGuard>
       <DashboardLayout currentPage="invoice">
-        <InvoiceManagement />
+        <InvoiceGenerator />
       </DashboardLayout>
     </AuthGuard>
   );
 };
 
-export default InvoicePage;
+export default AddInvoicePage;

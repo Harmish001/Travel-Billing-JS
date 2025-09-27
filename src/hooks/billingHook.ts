@@ -1,7 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { message } from "antd";
 import { createBilling, getAllBillings, getBillingById, updateBilling, deleteBilling } from "@/src/services/billing";
-import { IBillingRequest } from "@/src/types/iBilling";
+import { IBillingRequest, IGetAllBillingsResponse } from "@/src/types/iBilling";
 import { QUERY_KEYS } from "../constants/queryKey";
 
 interface ApiError {
@@ -29,7 +29,7 @@ export const useCreateBilling = () => {
 };
 
 export const useGetAllBillings = () => {
-	return useQuery({
+	return useQuery<IGetAllBillingsResponse>({
 		queryKey: [QUERY_KEYS.BILLING.ALL],
 		queryFn: getAllBillings
 	});

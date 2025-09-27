@@ -1,6 +1,6 @@
 export interface IBillingRequest {
 	companyName: string;
-	vehicleId: string;
+	vehicleIds: string[]; // Changed from single vehicleId to array of vehicleIds
 	billingDate?: Date;
 	recipientName: string;
 	recipientAddress: string;
@@ -27,6 +27,23 @@ export interface IBillingResponse {
 	invoiceNumber: string;
 	createdAt: Date;
 	updatedAt: Date;
+}
+
+export interface IBillingPagination {
+	currentPage: number;
+	totalPages: number;
+	totalBills: number;
+	hasNext: boolean;
+	hasPrev: boolean;
+}
+
+export interface IGetAllBillingsResponse {
+	status: boolean;
+	message: string;
+	data: {
+		bills: IBillingResponse[];
+		pagination: IBillingPagination;
+	};
 }
 
 export interface ICreateBillingResponse {
