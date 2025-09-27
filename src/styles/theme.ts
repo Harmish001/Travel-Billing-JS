@@ -53,9 +53,10 @@ export const antdTheme = {
     colorSplit: "#F0F0F0",
 
     // Component specific
-    borderRadius: 16,
+    borderRadius: 20,
     borderRadiusLG: 20,
-    borderRadiusSM: 12,
+    borderRadiusSM: 20,
+    borderRadiusXS: 20,
 
     // Spacing
     padding: 16,
@@ -109,6 +110,10 @@ export const antdTheme = {
       // Secondary button using accent colors
       colorWarning: themeColors.white,
       colorWarningBg: themeColors.secondary,
+      borderRadius: 20,
+      borderRadiusLG: 20,
+      borderRadiusSM: 20,
+      borderRadiusXS: 20
     },
 
     // Card component customization

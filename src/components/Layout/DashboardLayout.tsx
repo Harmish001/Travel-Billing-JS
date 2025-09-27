@@ -20,6 +20,7 @@ import {
   DashboardOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
+  SettingOutlined,
 } from "@ant-design/icons";
 import { useAuth } from "@/src/context/AuthContext";
 import { useRouter } from "next/navigation";
@@ -59,6 +60,24 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({
       label: "Invoice",
       onClick: () => {
         router.push("/invoice");
+        setMobileMenuVisible(false);
+      },
+    },
+    {
+      key: "vehicle",
+      icon: <FileTextOutlined />,
+      label: "Vehicle",
+      onClick: () => {
+        router.push("/vehicles");
+        setMobileMenuVisible(false);
+      },
+    },
+    {
+      key: "settings",
+      icon: <SettingOutlined />,
+      label: "Settings",
+      onClick: () => {
+        router.push("/settings");
         setMobileMenuVisible(false);
       },
     },
@@ -288,7 +307,6 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({
         placement="left"
         onClose={() => setMobileMenuVisible(false)}
         open={mobileMenuVisible}
-        bodyStyle={{ padding: 0 }}
         width={280}
         className="mobile-drawer"
       >
