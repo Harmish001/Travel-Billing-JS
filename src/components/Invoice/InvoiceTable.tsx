@@ -39,10 +39,7 @@ const InvoiceTable: React.FC<InvoiceTableProps> = ({
 	onExportPDF,
 	onExportExcel
 }) => {
-	const {
-		mutate: deleteBilling,
-		isPending: isDeleting,
-	} = useDeleteBilling();
+	const { mutate: deleteBilling, isPending: isDeleting } = useDeleteBilling();
 	const [api, contextHolder] = notification.useNotification();
 
 	const handleDelete = (invoiceId: string) => {
@@ -86,11 +83,7 @@ const InvoiceTable: React.FC<InvoiceTableProps> = ({
 			dataIndex: "companyName",
 			key: "companyName",
 			width: 180,
-			render: (text: string) => (
-				<Text style={{ fontSize: "13px" }}>
-					{text}
-				</Text>
-			)
+			render: (text: string) => <Text style={{ fontSize: "13px" }}>{text}</Text>
 		},
 		{
 			title: "Vehicles",
@@ -99,7 +92,7 @@ const InvoiceTable: React.FC<InvoiceTableProps> = ({
 			width: 150,
 			render: (vehicles: { _id: string; vehicleNumber: string }[]) => (
 				<Text style={{ fontSize: "13px" }}>
-					{vehicles.map(v => v.vehicleNumber).join(", ")}
+					{vehicles.map((v) => v.vehicleNumber).join(", ")}
 				</Text>
 			)
 		},
@@ -108,11 +101,7 @@ const InvoiceTable: React.FC<InvoiceTableProps> = ({
 			dataIndex: "recipientName",
 			key: "recipientName",
 			width: 150,
-			render: (text: string) => (
-				<Text style={{ fontSize: "13px" }}>
-					{text}
-				</Text>
-			)
+			render: (text: string) => <Text style={{ fontSize: "13px" }}>{text}</Text>
 		},
 		{
 			title: "Amount",
@@ -141,7 +130,8 @@ const InvoiceTable: React.FC<InvoiceTableProps> = ({
 					</Space>
 				</Tooltip>
 			),
-			sorter: (a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
+			sorter: (a, b) =>
+				new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
 		},
 		{
 			title: "Actions",
@@ -155,7 +145,7 @@ const InvoiceTable: React.FC<InvoiceTableProps> = ({
 							type="text"
 							icon={<EyeOutlined />}
 							onClick={() => onView(record)}
-							style={{ 
+							style={{
 								borderRadius: "20px",
 								padding: "4px 8px"
 							}}
@@ -166,7 +156,7 @@ const InvoiceTable: React.FC<InvoiceTableProps> = ({
 							type="text"
 							icon={<FilePdfOutlined />}
 							onClick={() => onExportPDF(record)}
-							style={{ 
+							style={{
 								borderRadius: "20px",
 								padding: "4px 8px"
 							}}
@@ -177,7 +167,7 @@ const InvoiceTable: React.FC<InvoiceTableProps> = ({
 							type="text"
 							icon={<FileExcelOutlined />}
 							onClick={() => onExportExcel(record)}
-							style={{ 
+							style={{
 								borderRadius: "20px",
 								padding: "4px 8px"
 							}}
@@ -190,8 +180,8 @@ const InvoiceTable: React.FC<InvoiceTableProps> = ({
 							onConfirm={() => handleDelete(record._id)}
 							okText="Delete"
 							cancelText="Cancel"
-							okButtonProps={{ 
-								danger: true, 
+							okButtonProps={{
+								danger: true,
 								loading: isDeleting,
 								style: { borderRadius: "20px" }
 							}}
@@ -204,7 +194,7 @@ const InvoiceTable: React.FC<InvoiceTableProps> = ({
 								type="text"
 								icon={<DeleteOutlined />}
 								danger
-								style={{ 
+								style={{
 									borderRadius: "20px",
 									padding: "4px 8px"
 								}}
@@ -219,22 +209,22 @@ const InvoiceTable: React.FC<InvoiceTableProps> = ({
 	return (
 		<div style={{ width: "100%" }}>
 			{contextHolder}
-				<Table
-					columns={columns}
-					dataSource={invoices}
-					rowKey="_id"
-					loading={loading}
-					pagination={false}
-					scroll={{ x: 1000 }}
-					size="middle"
-					style={{
-						borderRadius: "12px",
-						overflow: "hidden"
-					}}
-					rowHoverable
-					showSorterTooltip
-					className="invoice-table"
-				/>
+			<Table
+				columns={columns}
+				dataSource={invoices}
+				rowKey="_id"
+				loading={loading}
+				pagination={false}
+				scroll={{ x: 1000 }}
+				size="middle"
+				style={{
+					borderRadius: "12px",
+					overflow: "hidden"
+				}}
+				rowHoverable
+				showSorterTooltip
+				className="invoice-table"
+			/>
 		</div>
 	);
 };

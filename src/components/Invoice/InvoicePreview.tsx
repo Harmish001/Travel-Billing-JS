@@ -117,7 +117,7 @@ const InvoicePreview: React.FC<InvoicePreviewProps> = ({
 
 			const element = document.getElementById("invoice-preview-content");
 			if (element) {
-				const canvas = await html2canvas(element, { scale: 2 });
+				const canvas = await html2canvas(element, { scale: 1 });
 				const imgData = canvas.toDataURL("image/png");
 				const pdf = new jsPDF("p", "mm", "a4");
 				const imgWidth = 210;
@@ -261,7 +261,7 @@ const InvoicePreview: React.FC<InvoicePreviewProps> = ({
 						</body>
 					</html>
 				`);
-				printWindow.document.close();
+				// printWindow.document.close();
 				printWindow.focus();
 				printWindow.print();
 			}
@@ -281,7 +281,6 @@ const InvoicePreview: React.FC<InvoicePreviewProps> = ({
 						type="text" 
 						icon={<CloseOutlined />} 
 						onClick={onClose}
-						style={{ fontSize: "16px" }}
 					/>
 				</div>
 			}
@@ -289,8 +288,6 @@ const InvoicePreview: React.FC<InvoicePreviewProps> = ({
 			onClose={onClose}
 			open={visible}
 			width={500}
-			bodyStyle={{ padding: 0 }}
-			headerStyle={{ padding: "16px" }}
 			maskClosable={true}
 			destroyOnClose={true}
 		>
@@ -301,9 +298,6 @@ const InvoicePreview: React.FC<InvoicePreviewProps> = ({
 			}}>
 				{/* Action Buttons */}
 				<div style={{ 
-					padding: "16px", 
-					borderBottom: "1px solid #f0f0f0",
-					background: "#fafafa"
 				}}>
 					<Space size="middle">
 						<Button 
@@ -313,14 +307,13 @@ const InvoicePreview: React.FC<InvoicePreviewProps> = ({
 						>
 							Export PDF
 						</Button>
-						<Button 
+						{/* <Button 
 							icon={<FileExcelOutlined />}
 							onClick={handleExportExcel}
 						>
 							Export Excel
-						</Button>
+						</Button> */}
 						<Button 
-							icon={<PrinterOutlined />}
 							onClick={handlePrint}
 						>
 							Print
@@ -332,14 +325,14 @@ const InvoicePreview: React.FC<InvoicePreviewProps> = ({
 				<div style={{ 
 					flex: 1, 
 					overflow: "auto", 
-					padding: "20px" 
+					margin: "20px 0" 
 				}}>
 					<div 
 						id="invoice-preview-content"
 						style={{
 							backgroundColor: "white",
 							border: "2px solid #000",
-							padding: "20px",
+							padding: "12px",
 							fontFamily: "Arial, sans-serif",
 							fontSize: "12px"
 						}}
