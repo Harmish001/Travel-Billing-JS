@@ -44,7 +44,7 @@ const InvoiceCard: React.FC<InvoiceCardProps> = ({
 	const [api, contextHolder] = notification.useNotification();
 
 	const handleDelete = () => {
-		deleteBilling(invoice.id);
+		deleteBilling(invoice._id);
 	};
 
 	const formatDate = (dateString: string) => {
@@ -151,7 +151,7 @@ const InvoiceCard: React.FC<InvoiceCardProps> = ({
 				<Space direction="vertical" style={{ width: "100%" }} size="middle">
 					<div>
 						<Title level={4} style={{ margin: 0, fontSize: "18px" }}>
-							{invoice.invoiceNumber}
+							{invoice._id.substring(0, 8)}
 						</Title>
 						<Text type="secondary" style={{ fontSize: "13px" }}>
 							{invoice.companyName}
@@ -160,9 +160,11 @@ const InvoiceCard: React.FC<InvoiceCardProps> = ({
 
 					<Row gutter={[8, 8]}>
 						<Col span={12}>
-							<Text strong style={{ fontSize: "12px" }}>Vehicle:</Text>
+							<Text strong style={{ fontSize: "12px" }}>Vehicles:</Text>
 							<br />
-							<Text style={{ fontSize: "13px" }}>{invoice.vehicleId}</Text>
+							<Text style={{ fontSize: "13px" }}>
+								{invoice.vehicleIds.map(v => v.vehicleNumber).join(", ")}
+							</Text>
 						</Col>
 						<Col span={12}>
 							<Text strong style={{ fontSize: "12px" }}>Recipient:</Text>
@@ -176,7 +178,7 @@ const InvoiceCard: React.FC<InvoiceCardProps> = ({
 							<Text strong style={{ fontSize: "12px" }}>Amount:</Text>
 							<br />
 							<Text strong style={{ fontSize: "14px", color: "#52c41a" }}>
-								₹{invoice.totalAmount?.toLocaleString("en-IN") || 0}
+								₹{invoice.totalInvoiceValue?.toLocaleString("en-IN") || 0}
 							</Text>
 						</Col>
 						<Col span={12}>

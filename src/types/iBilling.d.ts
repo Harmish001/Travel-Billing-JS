@@ -1,30 +1,52 @@
+export interface IBillingItem {
+	description: string;
+	hsnSac: string;
+	unit: string;
+	quantity: number;
+	rate: number;
+	totalAmount?: number;
+}
+
+export interface IBankDetails {
+	bankName: string;
+	branch: string;
+	accountNumber: string;
+	ifscCode: string;
+}
+
 export interface IBillingRequest {
 	companyName: string;
-	vehicleIds: string[]; // Changed from single vehicleId to array of vehicleIds
+	vehicleIds: string[];
 	billingDate?: Date;
 	recipientName: string;
 	recipientAddress: string;
 	workingTime: string;
-	hsnCode?: string;
-	quantity?: number;
-	rate: number;
+	period: string;
+	projectLocation: string;
+	placeOfSupply: string;
+	billingItems: IBillingItem[];
+	bankDetails: IBankDetails;
 }
 
 export interface IBillingResponse {
-	id: string;
+	_id: string;
+	userId: string;
 	companyName: string;
-	vehicleId: string;
+	vehicleIds: Array<{
+		_id: string;
+		vehicleNumber: string;
+	}>;
 	billingDate: Date;
 	recipientName: string;
 	recipientAddress: string;
 	workingTime: string;
-	hsnCode: string;
-	quantity: number;
-	rate: number;
-	subtotal: number;
-	taxAmount: number;
-	totalAmount: number;
-	invoiceNumber: string;
+	period: string;
+	projectLocation: string;
+	placeOfSupply: string;
+	billingItems: IBillingItem[];
+	totalInvoiceValue: number;
+	bankDetails: IBankDetails;
+	isCompleted: boolean;
 	createdAt: Date;
 	updatedAt: Date;
 }
@@ -47,7 +69,7 @@ export interface IGetAllBillingsResponse {
 }
 
 export interface ICreateBillingResponse {
-	success: boolean;
+	status: boolean;
 	message: string;
 	data: IBillingResponse;
 }

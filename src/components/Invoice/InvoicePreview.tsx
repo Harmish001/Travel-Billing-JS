@@ -16,64 +16,95 @@ import { Vehicle } from "@/src/types/iVehicle";
 interface InvoicePreviewProps {
 	visible: boolean;
 	onClose: () => void;
-	invoiceData?: {
+	formData?: {
 		recipientName: string;
 		recipientAddress: string;
 		projectLocation: string;
 		workingTime: string;
 		period: string;
-		quantity: number;
-		rate: number;
+		placeOfSupply: string;
 		description: string;
-		invoiceNo: string;
-		invoiceDate: string;
-		supplierGstin: string;
-		supplierPan: string;
-		taxInvoiceNo: string;
 		hsnSac: string;
 		unit: string;
+		billingItems: Array<{
+			description: string;
+			hsnSac: string;
+			unit: string;
+			quantity: number;
+			rate: number;
+		}>;
 	};
 	selectedVehicles?: Vehicle[];
 	companyName?: string;
+	billingDate?: Date | null;
+	settings?: Settings | null;
 	existingInvoice?: IBillingResponse;
 }
 
 const InvoicePreview: React.FC<InvoicePreviewProps> = ({
 	visible,
 	onClose,
-	invoiceData,
+	formData,
 	selectedVehicles = [],
 	companyName,
+	billingDate,
+	settings: externalSettings,
 	existingInvoice
 }) => {
 	const { data: settingsData } = useSettings();
-	const settings: Settings | null = settingsData?.data || null;
+	const settings: Settings | null = externalSettings || settingsData?.data || null;
 
 	// Use existing invoice data if available, otherwise use form data
 	const isExistingInvoice = !!existingInvoice;
+	
 	const displayData = isExistingInvoice ? {
 		recipientName: existingInvoice.recipientName,
 		recipientAddress: existingInvoice.recipientAddress,
-		projectLocation: existingInvoice.recipientAddress, // Using recipient address as fallback
+		projectLocation: existingInvoice.projectLocation || existingInvoice.recipientAddress,
 		workingTime: existingInvoice.workingTime,
-		period: "", // Not available in existing invoice
-		quantity: existingInvoice.quantity,
-		rate: existingInvoice.rate,
-		description: `Hiring Charges for Car`, // Generic description for existing invoices
-		invoiceNo: existingInvoice.invoiceNumber,
+		period: existingInvoice.period || "",
+		placeOfSupply: existingInvoice.placeOfSupply || "",
+		billingItems: existingInvoice.billingItems || [],
 		invoiceDate: new Date(existingInvoice.createdAt).toLocaleDateString(),
 		supplierGstin: settings?.gstNumber || "24ELVPV5086R1ZB",
 		supplierPan: settings?.panNumber || "ELVPV5086R",
-		taxInvoiceNo: existingInvoice.invoiceNumber,
-		hsnSac: existingInvoice.hsnCode || "996601",
-		unit: "TRIP"
-	} : invoiceData;
+		taxInvoiceNo: existingInvoice._id || "INV-" + new Date().getTime()
+	} : {
+		recipientName: formData?.recipientName || "",
+		recipientAddress: formData?.recipientAddress || "",
+		projectLocation: formData?.projectLocation || "",
+		workingTime: formData?.workingTime || "",
+		period: formData?.period || "",
+		placeOfSupply: formData?.placeOfSupply || "",
+		billingItems: formData?.billingItems || [],
+		invoiceDate: billingDate ? new Date(billingDate).toLocaleDateString() : new Date().toLocaleDateString(),
+		supplierGstin: settings?.gstNumber || "24ELVPV5086R1ZB",
+		supplierPan: settings?.panNumber || "ELVPV5086R",
+		taxInvoiceNo: "INV-" + new Date().getTime()
+	};
 
 	const displayVehicles = isExistingInvoice ? 
-		[{ _id: existingInvoice.vehicleId, vehicleNumber: existingInvoice.vehicleId, vehicleType: "Vehicle" } as Vehicle] : 
+		(existingInvoice.vehicleIds?.map(v => ({ 
+			_id: v._id, 
+			vehicleNumber: v.vehicleNumber,
+			vehicleType: "Vehicle"
+		})) || []) : 
 		selectedVehicles;
 
-	const calculateSubtotal = () => (displayData?.quantity || 0) * (displayData?.rate || 0);
+	const calculateItemTotal = (quantity: number, rate: number) => {
+		return Math.round(quantity * rate * 100) / 100;
+	};
+
+	const calculateSubtotal = () => {
+		if (isExistingInvoice && existingInvoice) {
+			return existingInvoice.totalInvoiceValue;
+		}
+		
+		return displayData.billingItems.reduce((sum, item) => {
+			return sum + calculateItemTotal(item.quantity, item.rate);
+		}, 0);
+	};
+
 	const calculateGst = () => Math.round(calculateSubtotal() * 0.09);
 	const calculateTotal = () => calculateSubtotal() + calculateGst() * 2;
 
@@ -105,7 +136,7 @@ const InvoicePreview: React.FC<InvoicePreviewProps> = ({
 					heightLeft -= pageHeight;
 				}
 
-				pdf.save(`invoice-${displayData?.invoiceNo || "preview"}.pdf`);
+				pdf.save(`invoice-${displayData?.taxInvoiceNo || "preview"}.pdf`);
 			}
 		} catch (error) {
 			console.error("Error exporting PDF:", error);
@@ -120,6 +151,17 @@ const InvoicePreview: React.FC<InvoicePreviewProps> = ({
 			const vehicleInfo = displayVehicles.map(vehicle => 
 				`${vehicle.vehicleNumber} (${vehicle.vehicleType})`
 			).join(", ");
+
+			// Create data rows for billing items
+			const billingItemRows = displayData.billingItems.map((item, index) => [
+				index + 1,
+				item.description,
+				item.hsnSac,
+				item.unit,
+				item.quantity,
+				item.rate,
+				calculateItemTotal(item.quantity, item.rate)
+			]);
 
 			const data = [
 				[settings?.companyName || "SAI TRAVELS"],
@@ -167,15 +209,7 @@ const InvoicePreview: React.FC<InvoicePreviewProps> = ({
 					"RATE",
 					"TOTAL AMOUNT"
 				],
-				[
-					"1",
-					displayData?.description,
-					displayData?.hsnSac,
-					displayData?.unit,
-					displayData?.quantity,
-					displayData?.rate,
-					calculateSubtotal()
-				],
+				...billingItemRows,
 				["", "", "", "", "", "SGST 9%", calculateGst()],
 				["", "", "", "", "", "CGST 9%", calculateGst()],
 				["", "", "", "", "", "IGST 18%", 0],
@@ -186,7 +220,7 @@ const InvoicePreview: React.FC<InvoicePreviewProps> = ({
 			const worksheet = XLSX.utils.aoa_to_sheet(data);
 			const workbook = XLSX.utils.book_new();
 			XLSX.utils.book_append_sheet(workbook, worksheet, "Invoice");
-			XLSX.writeFile(workbook, `invoice-${displayData?.invoiceNo || "preview"}.xlsx`);
+			XLSX.writeFile(workbook, `invoice-${displayData?.taxInvoiceNo || "preview"}.xlsx`);
 		} catch (error) {
 			console.error("Error exporting Excel:", error);
 		}
@@ -330,7 +364,7 @@ const InvoicePreview: React.FC<InvoicePreviewProps> = ({
 											backgroundColor: "#f0f0f0"
 										}}
 									>
-										{settings?.companyName || "SAI TRAVELS"}
+										{settings?.companyName || companyName || "SAI TRAVELS"}
 									</td>
 								</tr>
 								<tr>
@@ -556,7 +590,7 @@ const InvoicePreview: React.FC<InvoicePreviewProps> = ({
 											fontSize: "10px"
 										}}
 									>
-										Place of Supply of Service : SURAT TO HAZIRA & SURAT TO DAHEJ
+										Place of Supply of Service : {displayData.placeOfSupply}
 									</td>
 								</tr>
 							</tbody>
@@ -645,82 +679,84 @@ const InvoicePreview: React.FC<InvoicePreviewProps> = ({
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td
-										style={{
-											border: "1px solid #000",
-											padding: "5px",
-											fontSize: "10px",
-											textAlign: "center"
-										}}
-									>
-										1
-									</td>
-									<td
-										style={{
-											border: "1px solid #000",
-											padding: "5px",
-											fontSize: "10px"
-										}}
-									>
-										{displayData.description.split("\n").map((line, i) => (
-											<span key={i}>
-												{line}
-												<br />
-											</span>
-										))}
-									</td>
-									<td
-										style={{
-											border: "1px solid #000",
-											padding: "5px",
-											fontSize: "10px",
-											textAlign: "center"
-										}}
-									>
-										{displayData.hsnSac}
-									</td>
-									<td
-										style={{
-											border: "1px solid #000",
-											padding: "5px",
-											fontSize: "10px",
-											textAlign: "center"
-										}}
-									>
-										{displayData.unit}
-									</td>
-									<td
-										style={{
-											border: "1px solid #000",
-											padding: "5px",
-											fontSize: "10px",
-											textAlign: "center"
-										}}
-									>
-										{displayData.quantity}
-									</td>
-									<td
-										style={{
-											border: "1px solid #000",
-											padding: "5px",
-											fontSize: "10px",
-											textAlign: "right"
-										}}
-									>
-										{displayData.rate}
-									</td>
-									<td
-										style={{
-											border: "1px solid #000",
-											padding: "5px",
-											fontSize: "10px",
-											textAlign: "right"
-										}}
-									>
-										{calculateSubtotal()}
-									</td>
-								</tr>
+								{displayData.billingItems.map((item, index) => (
+									<tr key={index}>
+										<td
+											style={{
+												border: "1px solid #000",
+												padding: "5px",
+												fontSize: "10px",
+												textAlign: "center"
+											}}
+										>
+											{index + 1}
+										</td>
+										<td
+											style={{
+												border: "1px solid #000",
+												padding: "5px",
+												fontSize: "10px"
+											}}
+										>
+											{item.description.split("\n").map((line, i) => (
+												<span key={i}>
+													{line}
+													<br />
+												</span>
+											))}
+										</td>
+										<td
+											style={{
+												border: "1px solid #000",
+												padding: "5px",
+												fontSize: "10px",
+												textAlign: "center"
+											}}
+										>
+											{item.hsnSac}
+										</td>
+										<td
+											style={{
+												border: "1px solid #000",
+												padding: "5px",
+												fontSize: "10px",
+												textAlign: "center"
+											}}
+										>
+											{item.unit}
+										</td>
+										<td
+											style={{
+												border: "1px solid #000",
+												padding: "5px",
+												fontSize: "10px",
+												textAlign: "center"
+											}}
+										>
+											{item.quantity}
+										</td>
+										<td
+											style={{
+												border: "1px solid #000",
+												padding: "5px",
+												fontSize: "10px",
+												textAlign: "right"
+											}}
+										>
+											{item.rate.toFixed(2)}
+										</td>
+										<td
+											style={{
+												border: "1px solid #000",
+												padding: "5px",
+												fontSize: "10px",
+												textAlign: "right"
+											}}
+										>
+											{calculateItemTotal(item.quantity, item.rate).toFixed(2)}
+										</td>
+									</tr>
+								))}
 								<tr>
 									<td
 										colSpan={6}

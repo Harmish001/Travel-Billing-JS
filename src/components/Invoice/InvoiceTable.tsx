@@ -69,17 +69,17 @@ const InvoiceTable: React.FC<InvoiceTableProps> = ({
 
 	const columns: ColumnsType<IBillingResponse> = [
 		{
-			title: "Invoice No",
-			dataIndex: "invoiceNumber",
-			key: "invoiceNumber",
+			title: "Invoice ID",
+			dataIndex: "_id",
+			key: "_id",
 			fixed: "left",
 			width: 150,
 			render: (text: string) => (
 				<Text strong style={{ fontSize: "14px" }}>
-					{text}
+					{text.substring(0, 8)}
 				</Text>
 			),
-			sorter: (a, b) => a.invoiceNumber.localeCompare(b.invoiceNumber)
+			sorter: (a, b) => a._id.localeCompare(b._id)
 		},
 		{
 			title: "Company Name",
@@ -93,13 +93,13 @@ const InvoiceTable: React.FC<InvoiceTableProps> = ({
 			)
 		},
 		{
-			title: "Vehicle No",
-			dataIndex: "vehicleId",
-			key: "vehicleId",
+			title: "Vehicles",
+			dataIndex: "vehicleIds",
+			key: "vehicleIds",
 			width: 150,
-			render: (text: string) => (
+			render: (vehicles: { _id: string; vehicleNumber: string }[]) => (
 				<Text style={{ fontSize: "13px" }}>
-					{text}
+					{vehicles.map(v => v.vehicleNumber).join(", ")}
 				</Text>
 			)
 		},
@@ -116,8 +116,8 @@ const InvoiceTable: React.FC<InvoiceTableProps> = ({
 		},
 		{
 			title: "Amount",
-			dataIndex: "totalAmount",
-			key: "totalAmount",
+			dataIndex: "totalInvoiceValue",
+			key: "totalInvoiceValue",
 			width: 120,
 			align: "right",
 			render: (amount: number) => (
@@ -125,7 +125,7 @@ const InvoiceTable: React.FC<InvoiceTableProps> = ({
 					₹{amount?.toLocaleString("en-IN") || 0}
 				</Text>
 			),
-			sorter: (a, b) => (a.totalAmount || 0) - (b.totalAmount || 0)
+			sorter: (a, b) => (a.totalInvoiceValue || 0) - (b.totalInvoiceValue || 0)
 		},
 		{
 			title: "Created",
@@ -187,7 +187,7 @@ const InvoiceTable: React.FC<InvoiceTableProps> = ({
 						<Popconfirm
 							title="Delete Invoice"
 							description="Are you sure you want to delete this invoice?"
-							onConfirm={() => handleDelete(record.id)}
+							onConfirm={() => handleDelete(record._id)}
 							okText="Delete"
 							cancelText="Cancel"
 							okButtonProps={{ 
@@ -219,10 +219,6 @@ const InvoiceTable: React.FC<InvoiceTableProps> = ({
 	return (
 		<div style={{ width: "100%" }}>
 			{contextHolder}
-			<Card 
-				style={{ borderRadius: "12px" }}
-				bodyStyle={{ padding: 0 }}
-			>
 				<Table
 					columns={columns}
 					dataSource={invoices}
@@ -239,119 +235,6 @@ const InvoiceTable: React.FC<InvoiceTableProps> = ({
 					showSorterTooltip
 					className="invoice-table"
 				/>
-			</Card>
-
-			<style jsx global>{`
-				.invoice-table .ant-table {
-					border-radius: 12px;
-				}
-
-				.invoice-table .ant-table-thead > tr > th {
-					background-color: #fafafa;
-					font-weight: 600;
-					border-bottom: 2px solid #f0f0f0;
-					padding: 16px 12px;
-				}
-
-				.invoice-table .ant-table-tbody > tr > td {
-					padding: 12px;
-					border-bottom: 1px solid #f0f0f0;
-				}
-
-				.invoice-table .ant-table-tbody > tr:hover > td {
-					background-color: #f9f9f9;
-				}
-
-				/* Mobile optimizations */
-				@media (max-width: 768px) {
-					.invoice-table .ant-table-thead > tr > th,
-					.invoice-table .ant-table-tbody > tr > td {
-						padding: 8px 6px;
-						font-size: 12px;
-					}
-
-					.invoice-table .ant-btn {
-						padding: 2px 6px;
-						font-size: 12px;
-					}
-
-					.invoice-table .ant-tag {
-						padding: 2px 6px;
-						font-size: 11px;
-						margin: 0;
-					}
-
-					.invoice-table .ant-table-container {
-						border-radius: 12px;
-					}
-
-					.invoice-table .ant-table-body {
-						overflow-x: auto;
-					}
-				}
-
-				/* Custom scrollbar for mobile table */
-				@media (max-width: 768px) {
-					.invoice-table .ant-table-body::-webkit-scrollbar {
-						height: 4px;
-					}
-
-					.invoice-table .ant-table-body::-webkit-scrollbar-track {
-						background: #f1f1f1;
-						border-radius: 2px;
-					}
-
-					.invoice-table .ant-table-body::-webkit-scrollbar-thumb {
-						background: #c1c1c1;
-						border-radius: 2px;
-					}
-
-					.invoice-table .ant-table-body::-webkit-scrollbar-thumb:hover {
-						background: #a8a8a8;
-					}
-				}
-
-				/* Hide less important columns on small screens */
-				@media (max-width: 576px) {
-					.invoice-table .ant-table-tbody .ant-table-cell:nth-child(3),
-					.invoice-table .ant-table-thead .ant-table-cell:nth-child(3),
-					.invoice-table .ant-table-tbody .ant-table-cell:nth-child(5),
-					.invoice-table .ant-table-thead .ant-table-cell:nth-child(5) {
-						display: none;
-					}
-				}
-
-				/* Mobile responsive text and spacing */
-				@media (max-width: 480px) {
-					.invoice-table .ant-table-thead > tr > th,
-					.invoice-table .ant-table-tbody > tr > td {
-						padding: 6px 4px !important;
-						font-size: 11px !important;
-					}
-
-					.invoice-table .ant-btn {
-						padding: 1px 4px !important;
-						font-size: 10px !important;
-						min-width: 28px;
-						height: 28px;
-					}
-
-					.invoice-table .ant-tag {
-						padding: 1px 4px !important;
-						font-size: 10px !important;
-						line-height: 1.2;
-					}
-
-					.invoice-table .ant-space {
-						gap: 2px !important;
-					}
-
-					/* Adjust fixed column widths for very small screens */
-					.invoice-table .ant-table {
-						font-size: 11px;
-					}
-				}
-			`}</style>
 		</div>
 	);
 };

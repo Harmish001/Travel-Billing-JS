@@ -41,10 +41,22 @@ export const updateBilling = async (
 
 export const deleteBilling = async (
 	id: string
-): Promise<{ success: boolean; message: string }> => {
+): Promise<{ status: boolean; message: string }> => {
 	const { data } = await axiosInstance.delete<{
-		success: boolean;
+		status: boolean;
 		message: string;
 	}>(`/billings/${id}`);
+	return data;
+};
+
+export const calculateBillingAmounts = async (
+	quantity: number,
+	rate: number
+): Promise<{ status: boolean; message: string; data: { quantity: number; rate: number; totalAmount: number } }> => {
+	const { data } = await axiosInstance.post<{
+		status: boolean;
+		message: string;
+		data: { quantity: number; rate: number; totalAmount: number };
+	}>("/billings/calculate", { quantity, rate });
 	return data;
 };

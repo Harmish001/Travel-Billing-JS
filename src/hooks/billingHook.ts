@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { message } from "antd";
-import { createBilling, getAllBillings, getBillingById, updateBilling, deleteBilling } from "@/src/services/billing";
+import { createBilling, getAllBillings, getBillingById, updateBilling, deleteBilling, calculateBillingAmounts } from "@/src/services/billing";
 import { IBillingRequest, IGetAllBillingsResponse } from "@/src/types/iBilling";
 import { QUERY_KEYS } from "../constants/queryKey";
 
@@ -74,5 +74,12 @@ export const useDeleteBilling = () => {
 			const errorMessage = error?.response?.data?.message || "Failed to delete billing";
 			message.error(errorMessage);
 		}
+	});
+};
+
+export const useCalculateBillingAmounts = () => {
+	return useMutation({
+		mutationFn: ({ quantity, rate }: { quantity: number; rate: number }) => 
+			calculateBillingAmounts(quantity, rate)
 	});
 };

@@ -128,10 +128,10 @@ const InvoiceManagement: React.FC = () => {
 
 	const filteredInvoices = bills.filter(
 		(invoice) =>
-			invoice.invoiceNumber.toLowerCase().includes(searchTerm.toLowerCase()) ||
+			invoice._id.toLowerCase().includes(searchTerm.toLowerCase()) ||
 			invoice.companyName.toLowerCase().includes(searchTerm.toLowerCase()) ||
 			invoice.recipientName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-			invoice.vehicleId.toLowerCase().includes(searchTerm.toLowerCase())
+			invoice.vehicleIds.some(v => v.vehicleNumber.toLowerCase().includes(searchTerm.toLowerCase()))
 	);
 
 	const totalInvoices = filteredInvoices.length;
@@ -192,7 +192,7 @@ const InvoiceManagement: React.FC = () => {
 								) : (
 									<Row gutter={[16, 16]}>
 										{paginatedInvoices.map((invoice) => (
-											<Col key={invoice.id} xs={24} sm={12} md={8} lg={6}>
+											<Col key={invoice._id} xs={24} sm={12} md={8} lg={6}>
 												<InvoiceCard
 													invoice={invoice}
 													onView={handleViewInvoice}
@@ -255,47 +255,6 @@ const InvoiceManagement: React.FC = () => {
 				onClose={hidePreview}
 				existingInvoice={selectedInvoice || undefined}
 			/>
-
-			<style jsx global>{`
-				/* Mobile optimizations for invoice management */
-				@media (max-width: 768px) {
-					.ant-input-group .ant-input {
-						border-radius: 12px 0 0 12px !important;
-					}
-
-					.ant-input-group .ant-btn {
-						border-radius: 0 12px 12px 0 !important;
-					}
-
-					.ant-input-search .ant-input-group {
-						display: flex;
-					}
-
-					.ant-input-search .ant-input {
-						flex: 1;
-					}
-				}
-
-				@media (max-width: 576px) {
-					.ant-flex {
-						flex-direction: column !important;
-						align-items: stretch !important;
-					}
-
-					.ant-input-search {
-						width: 100% !important;
-						max-width: none !important;
-						min-width: auto !important;
-						margin-bottom: 12px;
-					}
-
-					.ant-btn {
-						width: 100%;
-						height: 44px !important;
-						font-size: 16px !important;
-					}
-				}
-			`}</style>
 		</div>
 	);
 };
