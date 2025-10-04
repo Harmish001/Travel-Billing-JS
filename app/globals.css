@@ -35,6 +35,41 @@ a {
 	text-decoration: none;
 }
 
+/* Print styles */
+@media print {
+  @page {
+    size: A4;
+    margin: 10mm;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    background: white;
+    color: black;
+  }
+  
+  /* Hide non-essential elements when printing */
+  .no-print {
+    display: none !important;
+  }
+  
+  /* Ensure invoice content takes full page */
+  .invoice-preview-container {
+    width: 100% !important;
+    min-height: 100vh !important;
+    margin: 0 !important;
+    padding: 10mm !important;
+    border: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+  
+  .invoice-preview-container.preview-mode {
+    transform: none !important;
+  }
+}
+
 /* Fix for dropdown issues */
 .ant-select-dropdown,
 .ant-dropdown {

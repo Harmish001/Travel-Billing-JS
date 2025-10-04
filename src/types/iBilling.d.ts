@@ -35,6 +35,7 @@ export interface IBillingResponse {
 	vehicleIds: Array<{
 		_id: string;
 		vehicleNumber: string;
+		vehicleType: string;
 	}>;
 	billingDate: Date;
 	recipientName: string;

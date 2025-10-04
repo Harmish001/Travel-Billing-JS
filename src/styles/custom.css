@@ -14,6 +14,47 @@
   --color-white: #FFFFFF;
 }
 
+/* Invoice Preview Styles */
+.invoice-preview-container {
+  box-sizing: border-box;
+  width: 210mm !important;
+  min-height: 297mm !important;
+  margin: 0 auto !important;
+  padding: 10mm !important;
+  background: white !important;
+  border: 1px solid #000 !important;
+  font-family: Arial, sans-serif !important;
+  font-size: 12px !important;
+  transform-origin: top center;
+}
+
+/* Preview mode - scaled to fit drawer */
+.invoice-preview-container.preview-mode {
+  transform: scale(0.5) !important; /* Increased scaling for 500px drawer */
+}
+
+@media print {
+  .invoice-preview-container {
+    width: 210mm !important;
+    min-height: 297mm !important;
+    margin: 0 !important;
+    padding: 10mm !important;
+    border: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  @page {
+    size: A4;
+    margin: 0;
+  }
+}
+
 /* Mobile-first responsive design */
 .dashboard-container {
   padding: 16px;
@@ -23,11 +64,21 @@
   .dashboard-container {
     padding: 24px;
   }
+  
+  /* Adjust scale for larger screens */
+  .invoice-preview-container.preview-mode {
+    transform: scale(0.55) !important;
+  }
 }
 
 @media (min-width: 1024px) {
   .dashboard-container {
     padding: 32px;
+  }
+  
+  /* Larger scale for bigger screens */
+  .invoice-preview-container.preview-mode {
+    transform: scale(0.6) !important;
   }
 }
 
@@ -75,6 +126,18 @@
     max-height: 200px !important;
     overflow-y: auto !important;
   }
+  
+  /* Responsive invoice preview for mobile */
+  .invoice-preview-container {
+    width: 100% !important;
+    min-height: auto !important;
+    padding: 16px !important;
+    font-size: 10px !important;
+  }
+  
+  .invoice-preview-container.preview-mode {
+    transform: scale(0.45) !important;
+  }
 }
 
 @media (max-width: 576px) {
@@ -89,6 +152,21 @@
   
   .ant-statistic-content {
     font-size: 18px !important;
+  }
+  
+  /* Further responsive adjustments for small screens */
+  .invoice-preview-container {
+    padding: 12px !important;
+    font-size: 9px !important;
+  }
+  
+  .invoice-preview-container.preview-mode {
+    transform: scale(0.4) !important;
+  }
+  
+  .invoice-preview-container td,
+  .invoice-preview-container th {
+    padding: 4px !important;
   }
 }
 
@@ -165,9 +243,10 @@
 .ant-select-dropdown,
 .ant-dropdown,
 .ant-tooltip,
+.ant-picker,
 .ant-popover {
-  position: fixed !important;
-  z-index: 9999 !important;
+  /* position: fixed !important; */
+  /* z-index: 9999 !important; */
   pointer-events: auto !important;
 }
 
@@ -186,10 +265,10 @@
 }
 
 /* Accessibility improvements - Fixed to exclude dropdown elements */
-@media (prefers-reduced-motion: reduce) {
+/* @media (prefers-reduced-motion: reduce) {
   *:not(.ant-select-dropdown):not(.ant-dropdown):not(.ant-tooltip):not(.ant-popover):not(.ant-select-item):not(.ant-dropdown-menu-item) {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-}
+} */

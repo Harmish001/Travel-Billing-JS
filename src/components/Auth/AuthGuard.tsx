@@ -7,6 +7,7 @@ import { LoadingOutlined } from "@ant-design/icons";
 import { useAuth } from "@/src/context/AuthContext";
 import { useCurrentUser } from "@/src/hooks/useAuth";
 import { themeColors } from "@/src/styles/theme";
+import { useSettings } from "@/src/hooks";
 
 const { Title, Text } = Typography;
 
@@ -23,6 +24,8 @@ const AuthGuard: React.FC<AuthGuardProps> = ({
 }) => {
   const router = useRouter();
   const { user, isAuthenticated, isLoading, updateUser } = useAuth();
+  const { data: settingsData } = useSettings();
+  
   const {
     data: currentUser,
     isLoading: isUserLoading,
@@ -32,6 +35,7 @@ const AuthGuard: React.FC<AuthGuardProps> = ({
   useEffect(() => {
     // If we have user data from the API, update the auth context
     if (currentUser && !user) {
+      
       updateUser(currentUser);
     }
   }, [currentUser, user, updateUser]);
@@ -113,12 +117,6 @@ const AuthGuard: React.FC<AuthGuardProps> = ({
       >
         <Space direction="vertical" align="center" size="large">
           <div style={{ textAlign: "center" }}>
-            <Title
-              level={4}
-              style={{ color: themeColors.neutralDark, marginBottom: 8 }}
-            >
-              Access Denied
-            </Title>
             <Text type="secondary">Redirecting to login...</Text>
           </div>
         </Space>
@@ -126,8 +124,7 @@ const AuthGuard: React.FC<AuthGuardProps> = ({
     );
   }
 
-  // If authentication is not required, or user is authenticated, render children
-  return <>{children}</>;
+  if(currentUser) return <>{children}</>;
 };
 
 export default AuthGuard;

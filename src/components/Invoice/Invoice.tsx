@@ -11,18 +11,15 @@ import {
 	Row,
 	Col,
 	Card,
-	Divider
+	Divider,
+	Space
 } from "antd";
+import dayjs from "dayjs";
 import { useCreateBilling } from "@/src/hooks/billingHook";
 import { useSettings } from "@/src/hooks/settingsHook";
 import { useVehicles } from "@/src/hooks/vehicleHook";
-import {
-	IBillingRequest,
-	IBillingItem,
-	IBankDetails
-} from "@/src/types/iBilling";
+import { IBillingRequest, IBankDetails } from "@/src/types/iBilling";
 import { Settings } from "@/src/types/iSettings";
-import { Vehicle } from "@/src/types/iVehicle";
 import { useRouter } from "next/navigation";
 import InvoicePreview from "./InvoicePreview";
 
@@ -39,11 +36,15 @@ export const InvoiceGenerator: React.FC = () => {
 	// Fetch vehicles data
 	const { data: vehiclesData, isLoading: isVehiclesLoading } = useVehicles();
 	const vehicles = vehiclesData?.data?.vehicles || [];
-
-	const [companyName, setCompanyName] = useState<string>("");
+	console.log(settingsData);
+	const [companyName, setCompanyName] = useState<string>(
+		settingsData?.data?.companyName || "HEllo"
+	);
 	const [selectedVehicleIds, setSelectedVehicleIds] = useState<string[]>([]);
 	const [billingDate, setBillingDate] = useState<Date | null>(null);
-	const [isPreviewVisible, setIsPreviewVisible] = useState(false);
+
+	// View state - 'form' or 'preview'
+	const [view, setView] = useState<"form" | "preview">("form");
 	const [previewData, setPreviewData] = useState<any>(null);
 
 	// API integration
@@ -52,9 +53,8 @@ export const InvoiceGenerator: React.FC = () => {
 	// Set default values from settings when they load
 	useEffect(() => {
 		if (settings) {
-			setCompanyName(settings.companyName || "");
 			form.setFieldsValue({
-				placeOfSupply: "Maharashtra" // Default value as per API example
+				companyName: settingsData?.data?.companyName
 			});
 		}
 	}, [settings, form]);
@@ -68,8 +68,13 @@ export const InvoiceGenerator: React.FC = () => {
 		form
 			.validateFields()
 			.then((values) => {
-				setPreviewData(values);
-				setIsPreviewVisible(true);
+				// Format the billing date for preview
+				const formattedValues = {
+					...values
+				};
+				setBillingDate(new Date());
+				setPreviewData(formattedValues);
+				setView("preview");
 			})
 			.catch((errorInfo) => {
 				console.log("Validation failed:", errorInfo);
@@ -77,9 +82,9 @@ export const InvoiceGenerator: React.FC = () => {
 			});
 	};
 
-	// Function to hide preview
-	const hidePreview = () => {
-		setIsPreviewVisible(false);
+	// Function to go back to form view
+	const showForm = () => {
+		setView("form");
 	};
 
 	const saveBillingToAPI = async () => {
@@ -97,7 +102,7 @@ export const InvoiceGenerator: React.FC = () => {
 				const billingData: IBillingRequest = {
 					companyName: companyName.trim(),
 					vehicleIds: selectedVehicleIds,
-					billingDate: billingDate || new Date(),
+					billingDate: billingDate || new Date(), // Keep as Date object for API
 					recipientName: values.recipientName,
 					recipientAddress: values.recipientAddress,
 					workingTime: values.workingTime,
@@ -136,6 +141,36 @@ export const InvoiceGenerator: React.FC = () => {
 		);
 	}
 
+	// Render preview view
+	if (view === "preview" && previewData) {
+		return (
+			<div>
+				<Space style={{ marginBottom: 16 }}>
+					<Button type="default" onClick={showForm}>
+						Back to Form
+					</Button>
+					<Button
+						type="primary"
+						onClick={saveBillingToAPI}
+						loading={createBillingMutation.isPending}
+					>
+						Save Invoice
+					</Button>
+				</Space>
+				<InvoicePreview
+					visible={true}
+					onClose={showForm}
+					formData={previewData}
+					selectedVehicles={selectedVehicles}
+					companyName={companyName}
+					billingDate={billingDate}
+					settings={settings}
+				/>
+			</div>
+		);
+	}
+
+	// Render form view
 	return (
 		<div>
 			<Form
@@ -197,6 +232,9 @@ export const InvoiceGenerator: React.FC = () => {
 										input.toLowerCase()
 									)
 								}
+								getPopupContainer={(trigger) =>
+									trigger.parentElement || document.body
+								} // Fix for large screen date picker
 							>
 								{vehicles.map((vehicle) => (
 									<Option
@@ -216,6 +254,10 @@ export const InvoiceGenerator: React.FC = () => {
 								style={{ width: "100%" }}
 								onChange={(date) => setBillingDate(date ? date.toDate() : null)}
 								placeholder="Select billing date"
+								value={billingDate ? dayjs(billingDate) : null}
+								getPopupContainer={(trigger) =>
+									trigger.parentElement || document.body
+								} // Fix for large screen date picker
 							/>
 						</Form.Item>
 					</Col>
@@ -416,31 +458,21 @@ export const InvoiceGenerator: React.FC = () => {
 				<Divider />
 
 				<Row gutter={16}>
-					<Button type="default" onClick={showPreview}>
-						Preview Invoice
-					</Button>
-					<Col xs={24} sm={3}>
+					<Col>
+						<Button type="default" onClick={showPreview}>
+							Preview Invoice
+						</Button>
 						<Button
 							type="primary"
 							onClick={saveBillingToAPI}
 							loading={createBillingMutation.isPending}
+							style={{ marginLeft: "10px" }}
 						>
 							{createBillingMutation.isPending ? "Saving..." : "Save Invoice"}
 						</Button>
 					</Col>
 				</Row>
 			</Form>
-
-			{/* Invoice Preview Component */}
-			<InvoicePreview
-				visible={isPreviewVisible}
-				onClose={hidePreview}
-				formData={previewData}
-				selectedVehicles={selectedVehicles}
-				companyName={companyName}
-				billingDate={billingDate}
-				settings={settings}
-			/>
 		</div>
 	);
 };
