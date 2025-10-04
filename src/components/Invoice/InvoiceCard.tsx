@@ -47,6 +47,18 @@ const InvoiceCard: React.FC<InvoiceCardProps> = ({
 		deleteBilling(invoice._id);
 	};
 
+	const handleView = () => {
+		onView(invoice);
+	};
+
+	const handleExportPDFClick = () => {
+		onExportPDF(invoice);
+	};
+
+	const handleExportExcelClick = () => {
+		onExportExcel(invoice);
+	};
+
 	const formatDate = (dateString: string) => {
 		return new Date(dateString).toLocaleDateString("en-US", {
 			year: "numeric",
@@ -81,33 +93,7 @@ const InvoiceCard: React.FC<InvoiceCardProps> = ({
 						<Button
 							type="text"
 							icon={<EyeOutlined />}
-							onClick={() => onView(invoice)}
-							style={{ 
-								border: "none",
-								borderRadius: "20px",
-								width: "100%",
-								height: "40px"
-							}}
-						/>
-					</Tooltip>,
-					<Tooltip key="pdf" title="Export PDF">
-						<Button
-							type="text"
-							icon={<FilePdfOutlined />}
-							onClick={() => onExportPDF(invoice)}
-							style={{ 
-								border: "none",
-								borderRadius: "20px",
-								width: "100%",
-								height: "40px"
-							}}
-						/>
-					</Tooltip>,
-					<Tooltip key="excel" title="Export Excel">
-						<Button
-							type="text"
-							icon={<FileExcelOutlined />}
-							onClick={() => onExportExcel(invoice)}
+							onClick={handleView}
 							style={{ 
 								border: "none",
 								borderRadius: "20px",

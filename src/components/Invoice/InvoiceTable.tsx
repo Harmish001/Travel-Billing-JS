@@ -10,7 +10,10 @@ import {
 	Typography,
 	Tooltip,
 	Card,
-	notification
+	notification,
+	Row,
+	Col,
+	Grid
 } from "antd";
 import {
 	EyeOutlined,
@@ -21,6 +24,7 @@ import {
 import type { ColumnsType } from "antd/es/table";
 import { IBillingResponse } from "@/src/types/iBilling";
 import { useDeleteBilling } from "@/src/hooks/billingHook";
+import InvoiceCard from "./InvoiceCard";
 
 const { Text } = Typography;
 
@@ -42,9 +46,34 @@ const InvoiceTable: React.FC<InvoiceTableProps> = ({
 	const { mutate: deleteBilling, isPending: isDeleting } = useDeleteBilling();
 	const [api, contextHolder] = notification.useNotification();
 
+	const { useBreakpoint } = Grid;
+	const screens = useBreakpoint();
+	const isMobile = !screens.md; // Mobile view for screens smaller than medium (768px)
+
 	const handleDelete = (invoiceId: string) => {
 		deleteBilling(invoiceId);
 	};
+
+	// Render cards on mobile
+	if (isMobile) {
+		return (
+			<div style={{ width: "100%", marginTop: 12 }}>
+				{contextHolder}
+				<Row gutter={[16, 16]}>
+					{invoices.map((invoice) => (
+						<Col xs={24} key={invoice._id}>
+							<InvoiceCard
+								invoice={invoice}
+								onView={onView}
+								onExportPDF={onExportPDF}
+								onExportExcel={onExportExcel}
+							/>
+						</Col>
+					))}
+				</Row>
+			</div>
+		);
+	}
 
 	const formatDate = (dateString: string) => {
 		return new Date(dateString).toLocaleDateString("en-US", {
@@ -85,30 +114,18 @@ const InvoiceTable: React.FC<InvoiceTableProps> = ({
 			width: 180,
 			render: (text: string) => <Text style={{ fontSize: "13px" }}>{text}</Text>
 		},
-		// {
-		// 	title: "Vehicles",
-		// 	dataIndex: "vehicleIds",
-		// 	key: "vehicleIds",
-		// 	width: 150,
-		// 	render: (vehicles: { _id: string; vehicleNumber: string }[]) => (
-		// 		<Text style={{ fontSize: "13px" }}>
-		// 			{vehicles.map((v) => v.vehicleNumber).join(", ")}
-		// 		</Text>
-		// 	)
-		// },
 		{
 			title: "Recipient",
 			dataIndex: "recipientName",
 			key: "recipientName",
-			width: 150,
+			width: 100,
 			render: (text: string) => <Text style={{ fontSize: "13px" }}>{text}</Text>
 		},
 		{
 			title: "Amount",
 			dataIndex: "totalInvoiceValue",
 			key: "totalInvoiceValue",
-			width: 120,
-			align: "right",
+			width: 140,
 			render: (amount: number) => (
 				<Text strong style={{ fontSize: "13px" }}>
 					₹{amount?.toLocaleString("en-IN") || 0}
@@ -150,28 +167,6 @@ const InvoiceTable: React.FC<InvoiceTableProps> = ({
 							}}
 						/>
 					</Tooltip>
-					{/* <Tooltip title="Export PDF">
-						<Button
-							type="text"
-							icon={<FilePdfOutlined />}
-							onClick={() => onExportPDF(record)}
-							style={{
-								borderRadius: "20px",
-								padding: "4px 8px"
-							}}
-						/>
-					</Tooltip> */}
-					{/* <Tooltip title="Export Excel">
-						<Button
-							type="text"
-							icon={<FileExcelOutlined />}
-							onClick={() => onExportExcel(record)}
-							style={{
-								borderRadius: "20px",
-								padding: "4px 8px"
-							}}
-						/>
-					</Tooltip> */}
 					<Tooltip title="Delete Invoice">
 						<Popconfirm
 							title="Delete Invoice"

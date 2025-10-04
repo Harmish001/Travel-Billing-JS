@@ -12,13 +12,16 @@ import {
 	Empty,
 	Card,
 	Flex,
-	message
+	message,
+	Drawer
 } from "antd";
 import { PlusOutlined, SearchOutlined } from "@ant-design/icons";
 import { useGetAllBillings } from "@/src/hooks/billingHook";
 import { useRouter } from "next/navigation";
 import InvoiceTable from "./InvoiceTable";
 import Loader from "@/src/ui/Loader";
+import InvoicePreview from "./InvoicePreview";
+import { IBillingResponse } from "@/src/types/iBilling";
 
 const { Title } = Typography;
 const { Search } = Input;
@@ -28,6 +31,8 @@ const InvoiceManagement: React.FC = () => {
 	const [searchTerm, setSearchTerm] = useState("");
 	const [currentPage, setCurrentPage] = useState(1);
 	const [pageSize] = useState(10);
+	const [previewVisible, setPreviewVisible] = useState(false);
+	const [selectedInvoice, setSelectedInvoice] = useState<IBillingResponse | null>(null);
 
 	const { data, isLoading, error, refetch } = useGetAllBillings();
 
@@ -40,23 +45,28 @@ const InvoiceManagement: React.FC = () => {
 		router.push("/invoice/add");
 	};
 
-	const handleViewInvoice = (invoice: any) => {
-		// TODO: Implement view invoice functionality
-		console.log("View invoice", invoice);
+	const handleViewInvoice = (invoice: IBillingResponse) => {
+		setSelectedInvoice(invoice);
+		setPreviewVisible(true);
 	};
 
-	const handleExportPDF = (invoice: any) => {
+	const handleExportPDF = (invoice: IBillingResponse) => {
 		// TODO: Implement PDF export functionality
 		console.log("Export PDF", invoice);
 	};
 
-	const handleExportExcel = (invoice: any) => {
+	const handleExportExcel = (invoice: IBillingResponse) => {
 		// TODO: Implement Excel export functionality
 		console.log("Export Excel", invoice);
 	};
 
 	const handlePageChange = (page: number) => {
 		setCurrentPage(page);
+	};
+
+	const closePreview = () => {
+		setPreviewVisible(false);
+		setSelectedInvoice(null);
 	};
 
 	// Show loading state
@@ -165,6 +175,27 @@ const InvoiceManagement: React.FC = () => {
 					</Space>
 				</Col>
 			</Row>
+
+			{/* Invoice Preview Drawer */}
+			<Drawer
+				title="Invoice Preview"
+				placement="right"
+				onClose={closePreview}
+				open={previewVisible}
+				width="80%"
+				destroyOnClose
+				styles={{
+					body: { padding: 0 }
+				}}
+			>
+				{selectedInvoice && (
+					<InvoicePreview
+						visible={true}
+						onClose={closePreview}
+						existingInvoice={selectedInvoice}
+					/>
+				)}
+			</Drawer>
 		</div>
 	);
 };
