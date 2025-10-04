@@ -33,8 +33,9 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     const token = localStorage.getItem("token");
 
     if (token) {
-      // Token exists, user is likely authenticated
+      // Token exists, but we need to validate it
       // The actual user data will be fetched by useCurrentUser hook
+      // We'll set isLoading to false immediately to allow AuthGuard to check
       setIsLoading(false);
     } else {
       setIsLoading(false);
@@ -52,13 +53,17 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   };
 
   const updateUser = (userData: User) => {
-    console.log("userData",userData)
+    console.log("userData", userData);
     setUser(userData);
   };
 
+  // isAuthenticated should be false if we're still loading or if there's no user
+  // This prevents the brief flash of authenticated state
+  const isAuthenticated = !isLoading && !!user;
+
   const value: AuthContextType = {
     user,
-    isAuthenticated: !!user,
+    isAuthenticated,
     isLoading,
     login,
     logout,

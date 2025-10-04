@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import "@/src/styles/custom.css";
 import { Providers } from "./providers";
+import { themeColors } from "@/src/styles/theme";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
   formatDetection: {
     telephone: false,
   },
-  themeColor: "#1677ff",
+  themeColor: themeColors.primary,
 };
 
 export default function RootLayout({

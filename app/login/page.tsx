@@ -6,7 +6,7 @@ import NextLink from "next/link";
 import { useRouter } from "next/navigation";
 import { useLogin } from "@/src/hooks";
 
-const { Title, Text, Link } = Typography;
+const { Title, Text } = Typography;
 
 const LoginPage: React.FC = () => {
 	const router = useRouter();
@@ -110,13 +110,9 @@ const LoginPage: React.FC = () => {
 					<Space direction="vertical" size="small">
 						<Text type="secondary">
 							Don&apos;t have an account?{" "}
-							<NextLink href="/register">
-								<Link style={{ fontWeight: 600 }}>Sign up here</Link>
-							</NextLink>
+							<NextLink href="/register">Sign up here</NextLink>
 						</Text>
-						<NextLink href="/forgot-password">
-							<Link style={{ fontSize: "14px" }}>Forgot your password?</Link>
-						</NextLink>
+						<NextLink href="/forgot-password">Forgot your password?</NextLink>
 					</Space>
 				</div>
 			</Card>

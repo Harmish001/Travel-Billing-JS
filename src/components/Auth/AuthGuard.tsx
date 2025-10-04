@@ -20,7 +20,7 @@ interface AuthGuardProps {
 
 const AuthGuard: React.FC<AuthGuardProps> = ({
 	children,
-	redirectTo = "/login",
+	redirectTo = "/landingpage",
 	requireAuth = true
 }) => {
 	const router = useRouter();
@@ -69,8 +69,9 @@ const AuthGuard: React.FC<AuthGuardProps> = ({
 		return <Loader fullScreen />;
 	}
 
-	// If authentication is required but user is not authenticated, don't render children
+	// If authentication is required but user is not authenticated, redirect to landing page
 	if (requireAuth && !isAuthenticated && !currentUser) {
+		router.push(redirectTo);
 		return (
 			<div
 				style={{
@@ -83,14 +84,14 @@ const AuthGuard: React.FC<AuthGuardProps> = ({
 			>
 				<Space direction="vertical" align="center" size="large">
 					<div style={{ textAlign: "center" }}>
-						<Text type="secondary">Redirecting to login...</Text>
+						<Text type="secondary">Redirecting...</Text>
 					</div>
 				</Space>
 			</div>
 		);
 	}
 
-	if (currentUser) return <>{children}</>;
+	return <>{children}</>;
 };
 
 export default AuthGuard;

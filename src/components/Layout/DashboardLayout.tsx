@@ -2,28 +2,28 @@
 
 import React, { useState, useEffect } from "react";
 import {
-  Layout,
-  Menu,
-  Button,
-  Drawer,
-  Typography,
-  Space,
-  Avatar,
-  Dropdown,
-  MenuProps,
-  Spin,
+	Layout,
+	Menu,
+	Button,
+	Drawer,
+	Typography,
+	Space,
+	Avatar,
+	Dropdown,
+	MenuProps,
+	Spin
 } from "antd";
 import {
-  MenuOutlined,
-  FileTextOutlined,
-  LogoutOutlined,
-  UserOutlined,
-  DashboardOutlined,
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
-  SettingOutlined,
-  CarOutlined,
-  CloseOutlined
+	MenuOutlined,
+	FileTextOutlined,
+	LogoutOutlined,
+	UserOutlined,
+	DashboardOutlined,
+	MenuFoldOutlined,
+	MenuUnfoldOutlined,
+	SettingOutlined,
+	CarOutlined,
+	CloseOutlined
 } from "@ant-design/icons";
 import { useAuth } from "@/src/context/AuthContext";
 import { useRouter } from "next/navigation";
@@ -124,10 +124,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({
 			key: "logout",
 			icon: <LogoutOutlined />,
 			label: "Logout",
-			onClick: () => {
-				logout();
-				router.push("/login");
-			},
+			onClick: () => handleLogout(),
 			danger: true
 		}
 	];
@@ -145,7 +142,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({
 				<div
 					style={{
 						padding: "16px",
-            textAlign: "center",
+						textAlign: "center",
 						borderBottom: `1px solid ${themeColors.neutralLight}`
 					}}
 					className="desktopview-logo"
