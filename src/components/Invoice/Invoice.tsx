@@ -19,13 +19,10 @@ import {
 import {
 	PlusOutlined,
 	DeleteOutlined,
-	CalendarOutlined,
 	FieldNumberOutlined,
-	FileTextOutlined,
 	BankOutlined,
 	UserOutlined,
-	EyeOutlined,
-	ArrowLeftOutlined
+	EyeOutlined
 } from "@ant-design/icons";
 import type { ColumnsType } from "antd/es/table";
 import dayjs from "dayjs";
@@ -38,9 +35,9 @@ import { Settings } from "@/src/types/iSettings";
 import Loader from "@/src/ui/Loader";
 import InvoicePreview from "./InvoicePreview";
 import { themeColors } from "@/src/styles/theme";
+import { useRouter } from "next/navigation";
 
 const { Title, Text } = Typography;
-const { Option } = Select;
 
 // Helper function to calculate total amount
 const calculateTotalAmount = (quantity: number, rate: number): number => {
@@ -53,6 +50,7 @@ interface InvoiceFormValues extends IBillingRequest {
 
 const Invoice: React.FC = () => {
 	const [form] = Form.useForm();
+	const router = useRouter();
 	const [view, setView] = useState<"form" | "preview">("form");
 	const [previewData, setPreviewData] = useState<any>(null);
 	const [billingItems, setBillingItems] = useState<IBillingItem[]>([
@@ -108,10 +106,23 @@ const Invoice: React.FC = () => {
 
 		const billingData: IBillingRequest = {
 			...values,
-			billingItems: validItems
+			billingItems: validItems,
+			// @ts-ignore // DO NOT CHANGE
+			billingDate: dayjs(values.billingDate).format("DD/MM/YYYY"),
+			bankDetails: {
+				...values.bankDetails,
+				// @ts-ignore // DO NOT CHANGE
+				branch: values.bankDetails.branchName
+			}
 		};
 
-		createBilling(billingData);
+		createBilling(billingData, {
+			onSuccess: () => {
+				// Navigate back to the invoice list page after successful creation
+				message.success("Invoice created successfully!");
+				router.push("/invoice");
+			}
+		});
 	};
 
 	// Handle preview

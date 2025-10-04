@@ -2,13 +2,7 @@
 
 import React from "react";
 import { Typography, Card, Row, Col, Statistic, Space, Button } from "antd";
-import {
-	FileTextOutlined,
-	DollarOutlined,
-	UserOutlined,
-	CarOutlined,
-	PlusOutlined
-} from "@ant-design/icons";
+import { FileTextOutlined, CarOutlined, PlusOutlined } from "@ant-design/icons";
 import { useAuth } from "@/src/context/AuthContext";
 import { themeColors } from "@/src/styles/theme";
 import { useRouter } from "next/navigation";
@@ -22,9 +16,13 @@ const { Title, Paragraph } = Typography;
 const Dashboard: React.FC = () => {
 	const { user } = useAuth();
 	const router = useRouter();
-	
-	const { data: analyticsData, isLoading: isAnalyticsLoading, isError: isAnalyticsError } = useBillingAnalytics();
-	const { data: vehiclesData, isLoading: isVehiclesLoading } = useVehicles({ page: 1, limit: 100 });
+
+	const { data: analyticsData, isLoading: isAnalyticsLoading } =
+		useBillingAnalytics();
+	const { data: vehiclesData, isLoading: isVehiclesLoading } = useVehicles({
+		page: 1,
+		limit: 100
+	});
 
 	// Use API data or fallback to mock data
 	const stats = [
@@ -45,7 +43,10 @@ const Dashboard: React.FC = () => {
 		},
 		{
 			title: "Total Vehicles",
-			value: analyticsData?.data?.totalVehicles || vehiclesData?.data?.pagination?.totalVehicles || 0,
+			value:
+				analyticsData?.data?.totalVehicles ||
+				vehiclesData?.data?.pagination?.totalVehicles ||
+				0,
 			prefix: <CarOutlined style={{ color: themeColors.accent1 }} />,
 			suffix: "",
 			loading: isAnalyticsLoading || isVehiclesLoading
@@ -63,14 +64,21 @@ const Dashboard: React.FC = () => {
 			<div style={{ marginBottom: 24 }}>
 				<Title
 					level={2}
-					style={{ color: themeColors.neutralDark, marginBottom: 8 }}
+					style={{
+						color: themeColors.neutralDark,
+						marginBottom: 8,
+						display: "flex"
+					}}
 				>
-					Welcome back, {user?.user?.businessName}! 👋
+					Welcome back &nbsp;{" "}
+					<Title level={2} style={{ color: themeColors.primary }}>
+						{user?.user?.businessName}!
+					</Title>
 				</Title>
 				<Paragraph
 					style={{ fontSize: 16, color: themeColors.neutralDark, opacity: 0.8 }}
 				>
-					Here's what's happening with your travel business today.
+					Here's what's happening with your travel business.
 				</Paragraph>
 			</div>
 
@@ -118,41 +126,25 @@ const Dashboard: React.FC = () => {
 				))}
 			</Row>
 
-			{/* Recent Activity Placeholder */}
-			<Card
-				title={
-					<span style={{ color: themeColors.neutralDark, fontSize: 18 }}>
-						Recent Activity
-					</span>
-				}
+			<div
 				style={{
-					background: themeColors.white,
-					border: `1px solid ${themeColors.neutralLight}`,
-					borderRadius: 12,
-					boxShadow: "0 2px 8px rgba(0,0,0,0.1)"
+					textAlign: "center",
+					padding: "40px 20px",
+					color: themeColors.neutralDark
 				}}
 			>
-				<div
-					style={{
-						textAlign: "center",
-						padding: "40px 20px",
-						color: themeColors.neutralDark,
-						opacity: 0.6
-					}}
+				<FileTextOutlined style={{ fontSize: 48, marginBottom: 16 }} />
+				<Paragraph>
+					No recent activity to show. Start by creating your first invoice!
+				</Paragraph>
+				<Button
+					type="primary"
+					icon={<PlusOutlined />}
+					onClick={() => router.push("/invoice/add")}
 				>
-					<FileTextOutlined style={{ fontSize: 48, marginBottom: 16 }} />
-					<Paragraph>
-						No recent activity to show. Start by creating your first invoice!
-					</Paragraph>
-					<Button 
-						type="primary" 
-						icon={<PlusOutlined />}
-						onClick={() => router.push("/invoice/add")}
-					>
-						Create Invoice
-					</Button>
-				</div>
-			</Card>
+					Create Invoice
+				</Button>
+			</div>
 		</div>
 	);
 };

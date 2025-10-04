@@ -78,11 +78,21 @@ const InvoiceManagement: React.FC = () => {
 	return (
 		<div>
 			{/* Header */}
-			<Flex justify="space-between" align="center" wrap="wrap" gap="16px" style={{ marginBottom: "24px" }}>
+			<Flex
+				justify="space-between"
+				align="center"
+				wrap="wrap"
+				gap="16px"
+				style={{ marginBottom: "24px" }}
+			>
 				<Title level={3} style={{ margin: 0 }}>
 					Invoices
 				</Title>
-				<Button type="primary" onClick={handleAddInvoice} icon={<PlusOutlined />}>
+				<Button
+					type="primary"
+					onClick={handleAddInvoice}
+					icon={<PlusOutlined />}
+				>
 					Create Invoice
 				</Button>
 			</Flex>
@@ -132,27 +142,25 @@ const InvoiceManagement: React.FC = () => {
 								)}
 							</>
 						) : (
-							<Card style={{ borderRadius: "12px" }}>
-								<Empty
-									description={
-										searchTerm
-											? `No invoices found for "${searchTerm}"`
-											: "No invoices yet"
-									}
-									image={Empty.PRESENTED_IMAGE_SIMPLE}
-								>
-									{!searchTerm && (
-										<Button
-											type="primary"
-											onClick={handleAddInvoice}
-											icon={<PlusOutlined />}
-											style={{ borderRadius: "20px" }}
-										>
-											Create Your First Invoice
-										</Button>
-									)}
-								</Empty>
-							</Card>
+							<Empty
+								description={
+									searchTerm
+										? `No invoices found for "${searchTerm}"`
+										: "No invoices yet"
+								}
+								image={Empty.PRESENTED_IMAGE_SIMPLE}
+							>
+								{!searchTerm && (
+									<Button
+										type="primary"
+										onClick={handleAddInvoice}
+										icon={<PlusOutlined />}
+										style={{ borderRadius: "20px" }}
+									>
+										Create Your First Invoice
+									</Button>
+								)}
+							</Empty>
 						)}
 					</Space>
 				</Col>
