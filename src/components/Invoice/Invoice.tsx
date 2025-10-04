@@ -36,7 +36,7 @@ export const InvoiceGenerator: React.FC = () => {
 	// Fetch vehicles data
 	const { data: vehiclesData, isLoading: isVehiclesLoading } = useVehicles();
 	const vehicles = vehiclesData?.data?.vehicles || [];
-	console.log(settingsData);
+
 	const [companyName, setCompanyName] = useState<string>(
 		settingsData?.data?.companyName || "HEllo"
 	);

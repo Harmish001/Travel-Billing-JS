@@ -82,7 +82,12 @@ const VehicleManagement: React.FC = () => {
 	return (
 		<div>
 			{/* Header */}
-			<Flex justify="end" align="center" wrap="wrap" gap="16px">
+			<Flex
+				justify="end"
+				align="center"
+				wrap="wrap"
+				gap="16px"
+			>
 				<Button type="primary" onClick={handleAddVehicle}>
 					Add Vehicle
 				</Button>

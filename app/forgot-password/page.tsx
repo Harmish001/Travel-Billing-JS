@@ -74,13 +74,10 @@ const ForgotPasswordPage: React.FC = () => {
 						}
 						extra={[
 							<NextLink href="/login" key="login">
-								<Button type="primary" size="large">
-									Back to Login
-								</Button>
+								<Button type="primary">Back to Login</Button>
 							</NextLink>,
 							<Button
 								key="resend"
-								size="large"
 								onClick={() => setSuccess(false)}
 								style={{ marginLeft: "8px" }}
 							>
@@ -149,7 +146,6 @@ const ForgotPasswordPage: React.FC = () => {
 					>
 						<Input
 							placeholder="Enter your email address"
-							size="large"
 							style={{ borderRadius: "8px" }}
 						/>
 					</Form.Item>
@@ -159,7 +155,6 @@ const ForgotPasswordPage: React.FC = () => {
 							type="primary"
 							htmlType="submit"
 							loading={forgotPasswordMutation.isPending}
-							size="large"
 							block
 							style={{
 								borderRadius: "8px",

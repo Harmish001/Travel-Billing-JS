@@ -52,6 +52,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   };
 
   const updateUser = (userData: User) => {
+    console.log("userData",userData)
     setUser(userData);
   };
 

@@ -9,7 +9,10 @@ import {
 	Tag,
 	Typography,
 	Tooltip,
-	Card
+	Card,
+	Row,
+	Col,
+	Grid
 } from "antd";
 import {
 	EditOutlined,
@@ -19,6 +22,7 @@ import {
 import type { ColumnsType } from "antd/es/table";
 import { Vehicle } from "@/src/types/iVehicle";
 import { useDeleteVehicle } from "@/src/hooks/vehicleHook";
+import VehicleCard from "./VehicleCard";
 
 const { Text } = Typography;
 
@@ -39,9 +43,31 @@ const VehicleTable: React.FC<VehicleTableProps> = ({
 		contextHolder
 	} = useDeleteVehicle();
 
+	const { useBreakpoint } = Grid;
+	const screens = useBreakpoint();
+	const isMobile = !screens.md; // Mobile view for screens smaller than medium (768px)
+
 	const handleDelete = (vehicleId: string) => {
 		deleteVehicle(vehicleId);
 	};
+
+	if (isMobile) {
+		return (
+			<div style={{ width: "100%", marginTop: 12 }}>
+				{contextHolder}
+				<Row gutter={[16, 16]}>
+					{vehicles.map((vehicle) => (
+						<VehicleCard
+							vehicle={vehicle}
+							onEdit={onEdit}
+							onDelete={handleDelete}
+							isDeleting={isDeleting}
+						/>
+					))}
+				</Row>
+			</div>
+		);
+	}
 
 	const formatDate = (dateString: string) => {
 		return new Date(dateString).toLocaleDateString("en-US", {

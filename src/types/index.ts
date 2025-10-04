@@ -1,10 +1,13 @@
-export interface User {
+export interface IUser {
   _id: string;
   email: string;
   role: 'user' | 'admin';
   businessName: string;
   createdAt: string;
   updatedAt: string;
+}
+export interface User {
+  user: IUser;
 }
 
 export interface Product {

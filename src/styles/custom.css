@@ -91,6 +91,12 @@
   .mobile-menu-button {
     display: flex !important;
   }
+  .desktopview-logo {
+    display: none !important;
+  }
+  .desktop-collapse-button {
+    display: none !important;
+  }
   
   .desktop-sider {
     display: none !important;

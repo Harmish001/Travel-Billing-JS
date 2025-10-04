@@ -85,17 +85,17 @@ const InvoiceTable: React.FC<InvoiceTableProps> = ({
 			width: 180,
 			render: (text: string) => <Text style={{ fontSize: "13px" }}>{text}</Text>
 		},
-		{
-			title: "Vehicles",
-			dataIndex: "vehicleIds",
-			key: "vehicleIds",
-			width: 150,
-			render: (vehicles: { _id: string; vehicleNumber: string }[]) => (
-				<Text style={{ fontSize: "13px" }}>
-					{vehicles.map((v) => v.vehicleNumber).join(", ")}
-				</Text>
-			)
-		},
+		// {
+		// 	title: "Vehicles",
+		// 	dataIndex: "vehicleIds",
+		// 	key: "vehicleIds",
+		// 	width: 150,
+		// 	render: (vehicles: { _id: string; vehicleNumber: string }[]) => (
+		// 		<Text style={{ fontSize: "13px" }}>
+		// 			{vehicles.map((v) => v.vehicleNumber).join(", ")}
+		// 		</Text>
+		// 	)
+		// },
 		{
 			title: "Recipient",
 			dataIndex: "recipientName",
@@ -137,7 +137,7 @@ const InvoiceTable: React.FC<InvoiceTableProps> = ({
 			title: "Actions",
 			key: "actions",
 			fixed: "right",
-			width: 150,
+			width: 100,
 			render: (_, record: IBillingResponse) => (
 				<Space size="middle">
 					<Tooltip title="View Invoice">
@@ -146,12 +146,11 @@ const InvoiceTable: React.FC<InvoiceTableProps> = ({
 							icon={<EyeOutlined />}
 							onClick={() => onView(record)}
 							style={{
-								borderRadius: "20px",
-								padding: "4px 8px"
+								borderRadius: "20px"
 							}}
 						/>
 					</Tooltip>
-					<Tooltip title="Export PDF">
+					{/* <Tooltip title="Export PDF">
 						<Button
 							type="text"
 							icon={<FilePdfOutlined />}
@@ -161,8 +160,8 @@ const InvoiceTable: React.FC<InvoiceTableProps> = ({
 								padding: "4px 8px"
 							}}
 						/>
-					</Tooltip>
-					<Tooltip title="Export Excel">
+					</Tooltip> */}
+					{/* <Tooltip title="Export Excel">
 						<Button
 							type="text"
 							icon={<FileExcelOutlined />}
@@ -172,7 +171,7 @@ const InvoiceTable: React.FC<InvoiceTableProps> = ({
 								padding: "4px 8px"
 							}}
 						/>
-					</Tooltip>
+					</Tooltip> */}
 					<Tooltip title="Delete Invoice">
 						<Popconfirm
 							title="Delete Invoice"
@@ -195,7 +194,6 @@ const InvoiceTable: React.FC<InvoiceTableProps> = ({
 								icon={<DeleteOutlined />}
 								danger
 								style={{
-									borderRadius: "20px",
 									padding: "4px 8px"
 								}}
 							/>

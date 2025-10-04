@@ -29,7 +29,7 @@ import {
 import InvoiceTable from "./InvoiceTable";
 import InvoiceCard from "./InvoiceCard";
 import InvoicePreview from "./InvoicePreview"; // Import the preview component
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 
 const { Title } = Typography;
 const { Search } = Input;
@@ -66,7 +66,7 @@ const InvoiceManagement: React.FC = () => {
 	};
 
 	const handleAddInvoice = () => {
-		router.push('/invoice/add');
+		router.push("/invoice/add");
 	};
 
 	const handleViewInvoice = (invoice: IBillingResponse) => {
@@ -131,7 +131,9 @@ const InvoiceManagement: React.FC = () => {
 			invoice._id.toLowerCase().includes(searchTerm.toLowerCase()) ||
 			invoice.companyName.toLowerCase().includes(searchTerm.toLowerCase()) ||
 			invoice.recipientName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-			invoice.vehicleIds.some(v => v.vehicleNumber.toLowerCase().includes(searchTerm.toLowerCase()))
+			invoice.vehicleIds.some((v) =>
+				v.vehicleNumber.toLowerCase().includes(searchTerm.toLowerCase())
+			)
 	);
 
 	const totalInvoices = filteredInvoices.length;
@@ -158,19 +160,11 @@ const InvoiceManagement: React.FC = () => {
 					style={{
 						width: "100%",
 						maxWidth: 300,
-						minWidth: 200,
-						borderRadius: "12px"
+						minWidth: 200
 					}}
-					size="large"
 					enterButton={<SearchOutlined />}
 				/>
-				<Button
-					type="primary"
-					icon={<PlusOutlined />}
-					onClick={handleAddInvoice}
-					size="large"
-					style={{ borderRadius: "20px", minWidth: "140px" }}
-				>
+				<Button type="primary" onClick={handleAddInvoice}>
 					Create Invoice
 				</Button>
 			</Flex>
