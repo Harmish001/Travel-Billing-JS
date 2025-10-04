@@ -8,6 +8,7 @@ import { useAuth } from "@/src/context/AuthContext";
 import { useCurrentUser } from "@/src/hooks/useAuth";
 import { themeColors } from "@/src/styles/theme";
 import { useSettings } from "@/src/hooks";
+import Loader from "@/src/ui/Loader";
 
 const { Title, Text } = Typography;
 
@@ -65,42 +66,7 @@ const AuthGuard: React.FC<AuthGuardProps> = ({
 
 	// Show loading state while checking authentication
 	if (isLoading || isUserLoading) {
-		return (
-			<div
-				style={{
-					height: "100vh",
-					display: "flex",
-					alignItems: "center",
-					justifyContent: "center",
-					background: themeColors.neutralLight
-				}}
-			>
-				<Space direction="vertical" align="center" size="large">
-					<Spin
-						indicator={
-							<LoadingOutlined
-								style={{
-									fontSize: 48,
-									color: themeColors.primary
-								}}
-								spin
-							/>
-						}
-					/>
-					<div style={{ textAlign: "center" }}>
-						<Title
-							level={4}
-							style={{ color: themeColors.neutralDark, marginBottom: 8 }}
-						>
-							Loading...
-						</Title>
-						<Text type="secondary">
-							Please wait while we verify your authentication
-						</Text>
-					</div>
-				</Space>
-			</div>
-		);
+		return <Loader fullScreen />;
 	}
 
 	// If authentication is required but user is not authenticated, don't render children

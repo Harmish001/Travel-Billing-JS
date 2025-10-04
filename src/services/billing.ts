@@ -2,7 +2,8 @@ import {
 	IBillingRequest,
 	ICreateBillingResponse,
 	IBillingResponse,
-	IGetAllBillingsResponse
+	IGetAllBillingsResponse,
+	IBillingAnalyticsResponse
 } from "@/src/types/iBilling";
 import axiosInstance from "../lib/axios";
 
@@ -58,5 +59,11 @@ export const calculateBillingAmounts = async (
 		message: string;
 		data: { quantity: number; rate: number; totalAmount: number };
 	}>("/billings/calculate", { quantity, rate });
+	return data;
+};
+
+// Add the new analytics function
+export const getBillingAnalytics = async (): Promise<IBillingAnalyticsResponse> => {
+	const { data } = await axiosInstance.get<IBillingAnalyticsResponse>("/billings/analytics");
 	return data;
 };

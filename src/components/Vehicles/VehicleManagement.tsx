@@ -11,8 +11,7 @@ import {
 	Pagination,
 	Empty,
 	Card,
-	Flex,
-	Spin
+	Flex
 } from "antd";
 import { PlusOutlined, SearchOutlined, CarOutlined } from "@ant-design/icons";
 import { useVehicles } from "@/src/hooks/vehicleHook";
@@ -20,6 +19,7 @@ import { Vehicle } from "@/src/types/iVehicle";
 import VehicleStats from "./VehicleStats";
 import VehicleTable from "./VehicleTable";
 import AddEditVehicleModal from "./AddEditVehicleModal";
+import Loader from "@/src/ui/Loader";
 
 const { Title } = Typography;
 const { Search } = Input;
@@ -65,7 +65,7 @@ const VehicleManagement: React.FC = () => {
 	};
 
 	if (isLoading) {
-		return <Spin />;
+		return <Loader />;
 	}
 
 	if (error) {
@@ -82,12 +82,7 @@ const VehicleManagement: React.FC = () => {
 	return (
 		<div>
 			{/* Header */}
-			<Flex
-				justify="end"
-				align="center"
-				wrap="wrap"
-				gap="16px"
-			>
+			<Flex justify="end" align="center" wrap="wrap" gap="16px">
 				<Button type="primary" onClick={handleAddVehicle}>
 					Add Vehicle
 				</Button>

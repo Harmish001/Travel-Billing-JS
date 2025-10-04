@@ -6,47 +6,56 @@ import {
 	FileTextOutlined,
 	DollarOutlined,
 	UserOutlined,
-	TrophyOutlined,
+	CarOutlined,
 	PlusOutlined
 } from "@ant-design/icons";
 import { useAuth } from "@/src/context/AuthContext";
 import { themeColors } from "@/src/styles/theme";
 import { useRouter } from "next/navigation";
+import { useBillingAnalytics } from "@/src/hooks/billingHook";
+import { useVehicles } from "@/src/hooks/vehicleHook";
+import Loader from "@/src/ui/Loader";
+import { FaRupeeSign } from "react-icons/fa";
 
 const { Title, Paragraph } = Typography;
 
 const Dashboard: React.FC = () => {
 	const { user } = useAuth();
 	const router = useRouter();
+	
+	const { data: analyticsData, isLoading: isAnalyticsLoading, isError: isAnalyticsError } = useBillingAnalytics();
+	const { data: vehiclesData, isLoading: isVehiclesLoading } = useVehicles({ page: 1, limit: 100 });
 
-	// Mock data for dashboard statistics
+	// Use API data or fallback to mock data
 	const stats = [
 		{
 			title: "Total Invoices",
-			value: 12,
+			value: analyticsData?.data?.totalInvoices || 0,
 			prefix: <FileTextOutlined style={{ color: themeColors.primary }} />,
-			suffix: ""
+			suffix: "",
+			loading: isAnalyticsLoading
 		},
 		{
 			title: "Revenue This Month",
-			value: 24850,
-			prefix: <DollarOutlined style={{ color: themeColors.secondary }} />,
+			value: analyticsData?.data?.revenueThisMonth || 0,
+			prefix: <FaRupeeSign style={{ color: themeColors.secondary }} />,
 			suffix: "",
-			precision: 2
+			precision: 2,
+			loading: isAnalyticsLoading
 		},
 		{
-			title: "Active Clients",
-			value: 8,
-			prefix: <UserOutlined style={{ color: themeColors.accent1 }} />,
-			suffix: ""
-		},
-		{
-			title: "Completion Rate",
-			value: 95.5,
-			prefix: <TrophyOutlined style={{ color: themeColors.accent2 }} />,
-			suffix: "%"
+			title: "Total Vehicles",
+			value: analyticsData?.data?.totalVehicles || vehiclesData?.data?.pagination?.totalVehicles || 0,
+			prefix: <CarOutlined style={{ color: themeColors.accent1 }} />,
+			suffix: "",
+			loading: isAnalyticsLoading || isVehiclesLoading
 		}
 	];
+
+	// Show loading state if critical data is loading
+	if (isAnalyticsLoading) {
+		return <Loader />;
+	}
 
 	return (
 		<div>
@@ -56,7 +65,7 @@ const Dashboard: React.FC = () => {
 					level={2}
 					style={{ color: themeColors.neutralDark, marginBottom: 8 }}
 				>
-					Welcome back, {user?.user.businessName}! 👋
+					Welcome back, {user?.user?.businessName}! 👋
 				</Title>
 				<Paragraph
 					style={{ fontSize: 16, color: themeColors.neutralDark, opacity: 0.8 }}
@@ -68,7 +77,7 @@ const Dashboard: React.FC = () => {
 			{/* Statistics Cards */}
 			<Row gutter={[16, 16]} style={{ marginBottom: 32 }}>
 				{stats.map((stat, index) => (
-					<Col xs={24} sm={12} lg={6} key={index}>
+					<Col xs={24} sm={12} lg={8} key={index}>
 						<Card
 							style={{
 								background: themeColors.white,
@@ -80,24 +89,30 @@ const Dashboard: React.FC = () => {
 							hoverable
 							bodyStyle={{ padding: "20px" }}
 						>
-							<Statistic
-								title={
-									<span
-										style={{ color: themeColors.neutralDark, fontSize: 14 }}
-									>
-										{stat.title}
-									</span>
-								}
-								value={stat.value}
-								precision={stat.precision || 0}
-								prefix={stat.prefix}
-								suffix={stat.suffix}
-								valueStyle={{
-									color: themeColors.neutralDark,
-									fontSize: 24,
-									fontWeight: "bold"
-								}}
-							/>
+							{stat.loading ? (
+								<div style={{ textAlign: "center", padding: "20px 0" }}>
+									<Loader size="small" />
+								</div>
+							) : (
+								<Statistic
+									title={
+										<span
+											style={{ color: themeColors.neutralDark, fontSize: 14 }}
+										>
+											{stat.title}
+										</span>
+									}
+									value={stat.value}
+									precision={stat.precision || 0}
+									prefix={stat.prefix}
+									suffix={stat.suffix}
+									valueStyle={{
+										color: themeColors.neutralDark,
+										fontSize: 24,
+										fontWeight: "bold"
+									}}
+								/>
+							)}
 						</Card>
 					</Col>
 				))}
@@ -129,6 +144,13 @@ const Dashboard: React.FC = () => {
 					<Paragraph>
 						No recent activity to show. Start by creating your first invoice!
 					</Paragraph>
+					<Button 
+						type="primary" 
+						icon={<PlusOutlined />}
+						onClick={() => router.push("/invoice/add")}
+					>
+						Create Invoice
+					</Button>
 				</div>
 			</Card>
 		</div>

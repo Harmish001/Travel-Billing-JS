@@ -2,39 +2,38 @@
 
 import React, { useState, useEffect } from "react";
 import {
-	Layout,
-	Menu,
-	Button,
-	Drawer,
-	Typography,
-	Space,
-	Avatar,
-	Dropdown,
-	MenuProps,
-	Spin,
-	Tag
+  Layout,
+  Menu,
+  Button,
+  Drawer,
+  Typography,
+  Space,
+  Avatar,
+  Dropdown,
+  MenuProps,
+  Spin,
 } from "antd";
 import {
-	MenuOutlined,
-	FileTextOutlined,
-	LogoutOutlined,
-	UserOutlined,
-	DashboardOutlined,
-	MenuFoldOutlined,
-	MenuUnfoldOutlined,
-	SettingOutlined,
-	CarOutlined,
-	CloseOutlined
+  MenuOutlined,
+  FileTextOutlined,
+  LogoutOutlined,
+  UserOutlined,
+  DashboardOutlined,
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
+  SettingOutlined,
+  CarOutlined,
+  CloseOutlined
 } from "@ant-design/icons";
 import { useAuth } from "@/src/context/AuthContext";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 import { themeColors } from "@/src/styles/theme";
 import InstallPrompt from "@/src/components/PWA/InstallPrompt";
-import Title from "antd/es/typography/Title";
+import Loader from "@/src/ui/Loader";
 
 const { Header, Sider, Content } = Layout;
-const { Text } = Typography;
+const { Text, Title } = Typography;
 
 interface DashboardLayoutProps {
 	children?: React.ReactNode;
@@ -302,21 +301,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({
 						boxShadow: "0 2px 8px rgba(0,0,0,0.1)"
 					}}
 				>
-					{loading ? (
-						<div
-							style={{
-								display: "flex",
-								justifyContent: "center",
-								alignItems: "center",
-								height: "100%",
-								minHeight: "200px"
-							}}
-						>
-							<Spin size="large" />
-						</div>
-					) : (
-						children
-					)}
+					{loading ? <Loader /> : children}
 				</Content>
 			</Layout>
 

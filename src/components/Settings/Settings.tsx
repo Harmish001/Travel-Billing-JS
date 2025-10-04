@@ -11,7 +11,8 @@ import {
 	Space,
 	Typography,
 	Spin,
-	Popconfirm
+	Popconfirm,
+	Divider
 } from "antd";
 import {
 	SaveOutlined,
@@ -26,6 +27,7 @@ import {
 	useDeleteSettings
 } from "@/src/hooks/settingsHook";
 import { SettingsFormData } from "@/src/types/iSettings";
+import { themeColors } from "@/src/styles/theme";
 
 const { Title, Text } = Typography;
 const { TextArea } = Input;
@@ -129,22 +131,27 @@ const Settings: React.FC = () => {
 
 			<Row gutter={[24, 24]}>
 				<Col xs={24}>
-					{/* <Card
-					
-					> */}
 					<Spin spinning={isFormLoading}>
 						<Form
 							form={form}
 							layout="vertical"
 							onFinish={handleSubmit}
 							size="middle"
-							style={{ padding: "8px 0" }}
+							style={{ padding: "0px 0" }}
 						>
-							{/* Company Information Section */}
-							<Title level={5} style={{ color: "#1890ff" }}>
-								Company Information
-							</Title>
-
+							
+							<Divider>
+								<Title
+									level={4}
+									style={{
+										textAlign: "center",
+										margin: "0",
+										color: themeColors.primary
+									}}
+								>
+									Company Information
+								</Title>
+							</Divider>
 							<Row gutter={[16, 0]}>
 								<Col xs={24} sm={24} md={12} lg={8}>
 									<Form.Item
@@ -227,10 +234,18 @@ const Settings: React.FC = () => {
 							</Row>
 
 							{/* Bank Details Section */}
-							<Title level={5} style={{ color: "#1890ff" }}>
-								Bank Details
-							</Title>
-
+							<Divider>
+								<Title
+									level={4}
+									style={{
+										textAlign: "center",
+										margin: "0",
+										color: themeColors.primary
+									}}
+								>
+									Bank Details
+								</Title>
+							</Divider>
 							<Row gutter={[16, 0]}>
 								<Col xs={24} sm={12} md={12} lg={8}>
 									<Form.Item
@@ -291,7 +306,6 @@ const Settings: React.FC = () => {
 										type="primary"
 										htmlType="submit"
 										loading={isCreating || isUpdating}
-										block
 									>
 										{hasSettings ? "Update Settings" : "Save Settings"}
 									</Button>
@@ -299,54 +313,8 @@ const Settings: React.FC = () => {
 							</Row>
 						</Form>
 					</Spin>
-					{/* </Card> */}
 				</Col>
 			</Row>
-
-			<style jsx global>{`
-				/* Mobile optimizations */
-				@media (max-width: 768px) {
-					.ant-form-item {
-						margin-bottom: 16px !important;
-					}
-
-					.ant-row {
-						margin-bottom: 0 !important;
-					}
-
-					.ant-card-body {
-						padding: 16px !important;
-					}
-
-					.ant-input,
-					.ant-input-number,
-					.ant-select-selector {
-						height: 44px !important;
-						border-radius: 12px !important;
-					}
-
-					.ant-btn {
-						height: 44px !important;
-						border-radius: 20px !important;
-						font-size: 16px !important;
-					}
-				}
-
-				/* Desktop optimizations */
-				@media (min-width: 1200px) {
-					.ant-col-lg-8:nth-child(3n + 1) {
-						clear: left;
-					}
-				}
-
-				/* Touch-friendly dropdowns for mobile */
-				@media (max-width: 768px) {
-					.ant-select-dropdown {
-						max-height: 200px !important;
-						overflow-y: auto !important;
-					}
-				}
-			`}</style>
 		</div>
 	);
 };

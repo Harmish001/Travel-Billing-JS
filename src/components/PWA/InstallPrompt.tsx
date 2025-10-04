@@ -72,9 +72,6 @@ const InstallPrompt = () => {
 			open={isVisible}
 			onCancel={handleCancel}
 			footer={[
-				<Button key="cancel" onClick={handleCancel}>
-					Not Now
-				</Button>,
 				<Button
 					key="install"
 					type="primary"

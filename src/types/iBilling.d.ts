@@ -74,3 +74,14 @@ export interface ICreateBillingResponse {
 	message: string;
 	data: IBillingResponse;
 }
+
+// Add the new analytics interface
+export interface IBillingAnalyticsResponse {
+	status: boolean;
+	message: string;
+	data: {
+		totalInvoices: number;
+		revenueThisMonth: number;
+		totalVehicles: number;
+	};
+}

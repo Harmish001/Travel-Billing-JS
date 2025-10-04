@@ -1,7 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { message } from "antd";
-import { createBilling, getAllBillings, getBillingById, updateBilling, deleteBilling, calculateBillingAmounts } from "@/src/services/billing";
-import { IBillingRequest, IGetAllBillingsResponse } from "@/src/types/iBilling";
+import { createBilling, getAllBillings, getBillingById, updateBilling, deleteBilling, calculateBillingAmounts, getBillingAnalytics } from "@/src/services/billing";
+import { IBillingRequest, IGetAllBillingsResponse, IBillingAnalyticsResponse } from "@/src/types/iBilling";
 import { QUERY_KEYS } from "../constants/queryKey";
 
 interface ApiError {
@@ -81,5 +81,13 @@ export const useCalculateBillingAmounts = () => {
 	return useMutation({
 		mutationFn: ({ quantity, rate }: { quantity: number; rate: number }) => 
 			calculateBillingAmounts(quantity, rate)
+	});
+};
+
+// Add the new hook for billing analytics
+export const useBillingAnalytics = () => {
+	return useQuery<IBillingAnalyticsResponse>({
+		queryKey: [QUERY_KEYS.BILLING.ANALYTICS],
+		queryFn: getBillingAnalytics
 	});
 };

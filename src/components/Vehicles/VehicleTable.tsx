@@ -141,33 +141,6 @@ const VehicleTable: React.FC<VehicleTableProps> = ({
 				new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
 		},
 		{
-			title: "Updated",
-			dataIndex: "updatedAt",
-			key: "updatedAt",
-			width: 120,
-			render: (date: string, record: Vehicle) => {
-				if (date === record.createdAt) {
-					return (
-						<Text type="secondary" style={{ fontSize: "12px" }}>
-							-
-						</Text>
-					);
-				}
-				return (
-					<Tooltip title={formatDateTime(date)}>
-						<Space size="small">
-							<CalendarOutlined style={{ color: "#666" }} />
-							<Text type="secondary" style={{ fontSize: "12px" }}>
-								{formatDate(date)}
-							</Text>
-						</Space>
-					</Tooltip>
-				);
-			},
-			sorter: (a, b) =>
-				new Date(a.updatedAt).getTime() - new Date(b.updatedAt).getTime()
-		},
-		{
 			title: "Actions",
 			key: "actions",
 			fixed: "right",

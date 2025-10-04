@@ -6,7 +6,8 @@ export const QUERY_KEYS = {
 	},
 	BILLING: {
 		ALL: "allBillings",
-		BY_ID: "billingById"
+		BY_ID: "billingById",
+		ANALYTICS: "billingAnalytics"  // Add this line
 	},
 	SETTINGS: {
 		DETAILS: "settingsDetails"

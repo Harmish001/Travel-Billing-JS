@@ -1,170 +1,334 @@
+"use client";
+
 import React, { useState, useEffect } from "react";
 import {
-	Button,
-	Input,
-	InputNumber,
-	message,
-	Spin,
-	Select,
-	DatePicker,
 	Form,
+	Input,
+	Button,
 	Row,
 	Col,
-	Card,
+	Select,
+	DatePicker,
+	Table,
+	Typography,
 	Divider,
-	Space
+	Alert,
+	message,
+	Flex
 } from "antd";
+import {
+	PlusOutlined,
+	DeleteOutlined,
+	CalendarOutlined,
+	FieldNumberOutlined,
+	FileTextOutlined,
+	BankOutlined,
+	UserOutlined,
+	EyeOutlined,
+	ArrowLeftOutlined
+} from "@ant-design/icons";
+import type { ColumnsType } from "antd/es/table";
 import dayjs from "dayjs";
-import { useCreateBilling } from "@/src/hooks/billingHook";
 import { useSettings } from "@/src/hooks/settingsHook";
 import { useVehicles } from "@/src/hooks/vehicleHook";
-import { IBillingRequest, IBankDetails } from "@/src/types/iBilling";
+import { useCreateBilling } from "@/src/hooks/billingHook";
+import { IBillingItem, IBillingRequest } from "@/src/types/iBilling";
+import { Vehicle } from "@/src/types/iVehicle";
 import { Settings } from "@/src/types/iSettings";
-import { useRouter } from "next/navigation";
+import Loader from "@/src/ui/Loader";
 import InvoicePreview from "./InvoicePreview";
+import { themeColors } from "@/src/styles/theme";
 
-const { TextArea } = Input;
+const { Title, Text } = Typography;
 const { Option } = Select;
 
-export const InvoiceGenerator: React.FC = () => {
-	const router = useRouter();
+// Helper function to calculate total amount
+const calculateTotalAmount = (quantity: number, rate: number): number => {
+	return parseFloat((quantity * rate).toFixed(2));
+};
+
+interface InvoiceFormValues extends IBillingRequest {
+	billingItems: IBillingItem[];
+}
+
+const Invoice: React.FC = () => {
 	const [form] = Form.useForm();
-	// Fetch settings data
-	const { data: settingsData, isLoading: isSettingsLoading } = useSettings();
-	const settings: Settings | null = settingsData?.data || null;
-
-	// Fetch vehicles data
-	const { data: vehiclesData, isLoading: isVehiclesLoading } = useVehicles();
-	const vehicles = vehiclesData?.data?.vehicles || [];
-
-	const [companyName, setCompanyName] = useState<string>(
-		settingsData?.data?.companyName || "HEllo"
-	);
-	const [selectedVehicleIds, setSelectedVehicleIds] = useState<string[]>([]);
-	const [billingDate, setBillingDate] = useState<Date | null>(null);
-
-	// View state - 'form' or 'preview'
 	const [view, setView] = useState<"form" | "preview">("form");
 	const [previewData, setPreviewData] = useState<any>(null);
+	const [billingItems, setBillingItems] = useState<IBillingItem[]>([
+		{
+			description: "Hiring Charges for",
+			hsnSac: "996601",
+			unit: "Trip",
+			quantity: 1,
+			rate: 0,
+			totalAmount: 0
+		}
+	]);
 
-	// API integration
-	const createBillingMutation = useCreateBilling();
+	const { data: settingsData, isLoading: isSettingsLoading } = useSettings();
+	const { data: vehiclesData, isLoading: isVehiclesLoading } = useVehicles();
+	const {
+		mutate: createBilling,
+		isPending: isCreating,
+		data: createdBilling
+	} = useCreateBilling();
 
-	// Set default values from settings when they load
+	// Set default values when settings or vehicles data loads
 	useEffect(() => {
-		if (settings) {
+		if (settingsData?.data) {
 			form.setFieldsValue({
-				companyName: settingsData?.data?.companyName
+				companyName: (settingsData.data as Settings).companyName,
+				bankDetails: (settingsData.data as Settings).bankDetails
 			});
 		}
-	}, [settings, form]);
+	}, [settingsData, form]);
 
-	const handleVehicleChange = (vehicleIds: string[]) => {
-		setSelectedVehicleIds(vehicleIds);
+	useEffect(() => {
+		if (vehiclesData?.data?.vehicles && vehiclesData.data.vehicles.length > 0) {
+			const defaultVehicleIds = vehiclesData.data.vehicles.map(
+				(vehicle) => vehicle._id
+			);
+
+			form.setFieldValue("vehicleIds", defaultVehicleIds);
+		}
+	}, [vehiclesData, form]);
+
+	// Handle form submission
+	const onFinish = (values: InvoiceFormValues) => {
+		// Filter out items with no description
+		const validItems = values.billingItems.filter(
+			(item) => item.description.trim() !== ""
+		);
+
+		if (validItems.length === 0) {
+			message.error("Please add at least one billing item");
+			return;
+		}
+
+		const billingData: IBillingRequest = {
+			...values,
+			billingItems: validItems
+		};
+
+		createBilling(billingData);
 	};
 
-	// Function to show preview
-	const showPreview = () => {
-		form
-			.validateFields()
-			.then((values) => {
-				// Format the billing date for preview
-				const formattedValues = {
-					...values
-				};
-				setBillingDate(new Date());
-				setPreviewData(formattedValues);
-				setView("preview");
-			})
-			.catch((errorInfo) => {
-				console.log("Validation failed:", errorInfo);
-				message.error("Please fill in all required fields");
-			});
+	// Handle preview
+	const handlePreview = async () => {
+		try {
+			const values = await form.validateFields();
+			setPreviewData(values);
+			setView("preview");
+		} catch (error) {
+			message.error("Please fill all required fields before previewing");
+		}
 	};
 
-	// Function to go back to form view
-	const showForm = () => {
+	// Handle back to form
+	const handleBackToForm = () => {
 		setView("form");
 	};
 
-	const saveBillingToAPI = async () => {
-		form
-			.validateFields()
-			.then(async (values) => {
-				// Prepare bank details from settings
-				const bankDetails: IBankDetails = {
-					bankName: settings?.bankDetails?.bankName || "",
-					branch: settings?.bankDetails?.branchName || "",
-					accountNumber: settings?.bankDetails?.accountNumber || "",
-					ifscCode: settings?.bankDetails?.ifscCode || ""
-				};
+	// Handle item changes
+	const handleItemChange = (
+		index: number,
+		field: keyof IBillingItem,
+		value: any
+	) => {
+		const newItems = [...billingItems];
+		newItems[index] = { ...newItems[index], [field]: value };
 
-				const billingData: IBillingRequest = {
-					companyName: companyName.trim(),
-					vehicleIds: selectedVehicleIds,
-					billingDate: billingDate || new Date(), // Keep as Date object for API
-					recipientName: values.recipientName,
-					recipientAddress: values.recipientAddress,
-					workingTime: values.workingTime,
-					period: values.period,
-					projectLocation: values.projectLocation,
-					placeOfSupply: values.placeOfSupply,
-					billingItems: values.billingItems,
-					bankDetails
-				};
+		// Calculate total amount when quantity or rate changes
+		if (field === "quantity" || field === "rate") {
+			const quantity = field === "quantity" ? value : newItems[index].quantity;
+			const rate = field === "rate" ? value : newItems[index].rate;
+			newItems[index].totalAmount = calculateTotalAmount(quantity, rate);
+		}
 
-				createBillingMutation.mutate(billingData, {
-					onSuccess: () => {
-						// Navigate back to the invoice list page after successful creation
-						message.success("Invoice created successfully!");
-						router.push("/invoice");
-					}
-				});
-			})
-			.catch((errorInfo) => {
-				console.log("Validation failed:", errorInfo);
-				message.error("Please fill in all required fields");
-			});
+		setBillingItems(newItems);
+		form.setFieldValue("billingItems", newItems);
 	};
 
-	// Get selected vehicles for preview
-	const selectedVehicles = vehicles.filter((vehicle) =>
-		selectedVehicleIds.includes(vehicle._id)
-	);
+	// Add new billing item
+	const addBillingItem = () => {
+		setBillingItems([
+			...billingItems,
+			{
+				description: "",
+				hsnSac: "",
+				unit: "Nos",
+				quantity: 0,
+				rate: 0,
+				totalAmount: 0
+			}
+		]);
+	};
 
+	// Remove billing item
+	const removeBillingItem = (index: number) => {
+		if (billingItems.length <= 1) {
+			message.warning("At least one billing item is required");
+			return;
+		}
+
+		const newItems = billingItems.filter((_, i) => i !== index);
+		setBillingItems(newItems);
+		form.setFieldValue("billingItems", newItems);
+	};
+
+	// Calculate grand total
+	const calculateGrandTotal = () => {
+		return billingItems.reduce((sum, item) => sum + (item.totalAmount || 0), 0);
+	};
+
+	// Billing items table columns
+	const columns: ColumnsType<IBillingItem> = [
+		{
+			title: "Description",
+			dataIndex: "description",
+			render: (_, __, index) => (
+				<Form.Item
+					name={["billingItems", index, "description"]}
+					rules={[{ required: true, message: "Description is required" }]}
+					noStyle
+				>
+					<Input
+						placeholder="Item description"
+						onChange={(e) =>
+							handleItemChange(index, "description", e.target.value)
+						}
+					/>
+				</Form.Item>
+			)
+		},
+		{
+			title: "HSN/SAC",
+			dataIndex: "hsnSac",
+			width: 150,
+			render: (_, __, index) => (
+				<Form.Item name={["billingItems", index, "hsnSac"]} noStyle>
+					<Input
+						placeholder="HSN/SAC"
+						onChange={(e) => handleItemChange(index, "hsnSac", e.target.value)}
+					/>
+				</Form.Item>
+			)
+		},
+		{
+			title: "Unit",
+			dataIndex: "unit",
+			width: 150,
+			render: (_, __, index) => (
+				<Form.Item name={["billingItems", index, "unit"]} noStyle>
+					<Select
+						onChange={(value) => handleItemChange(index, "unit", value)}
+						style={{ width: 100 }}
+						options={[
+							{ value: "Km", label: "Km" },
+							{ value: "Meter", label: "Meter" },
+							{ value: "Hours", label: "Hours" },
+							{ value: "Day", label: "Day" },
+							{ value: "Trip", label: "Trip" }
+						]}
+					/>
+				</Form.Item>
+			)
+		},
+		{
+			title: "Qty",
+			dataIndex: "quantity",
+			width: 100,
+			render: (_, __, index) => (
+				<Form.Item
+					name={["billingItems", index, "quantity"]}
+					rules={[{ required: true, message: "Qty required" }]}
+					noStyle
+				>
+					<Input
+						type="number"
+						placeholder="0"
+						onChange={(e) =>
+							handleItemChange(
+								index,
+								"quantity",
+								parseFloat(e.target.value) || 0
+							)
+						}
+					/>
+				</Form.Item>
+			)
+		},
+		{
+			title: "Rate",
+			dataIndex: "rate",
+			width: 140,
+			render: (_, __, index) => (
+				<Form.Item
+					name={["billingItems", index, "rate"]}
+					rules={[{ required: true, message: "Rate required" }]}
+					noStyle
+				>
+					<Input
+						type="number"
+						placeholder="0.00"
+						onChange={(e) =>
+							handleItemChange(index, "rate", parseFloat(e.target.value) || 0)
+						}
+						prefix="₹"
+					/>
+				</Form.Item>
+			)
+		},
+		{
+			title: "Total",
+			dataIndex: "totalAmount",
+			width: 120,
+			render: (_, record) => (
+				<Text strong>₹{record.totalAmount?.toFixed(2) || "0.00"}</Text>
+			)
+		},
+		{
+			title: "Action",
+			key: "action",
+			width: 40,
+			render: (_, __, index) => (
+				<Button
+					type="text"
+					danger
+					icon={<DeleteOutlined />}
+					onClick={() => removeBillingItem(index)}
+				/>
+			)
+		}
+	];
+
+	// Show loading state while fetching data
 	if (isSettingsLoading || isVehiclesLoading) {
-		return (
-			<div style={{ padding: "24px", textAlign: "center" }}>
-				<Spin size="large" />
-				<p>Loading invoice data...</p>
-			</div>
-		);
+		return <Loader />;
 	}
 
 	// Render preview view
-	if (view === "preview" && previewData) {
+	if (view === "preview") {
 		return (
-			<div>
-				<Space style={{ marginBottom: 16 }}>
-					<Button type="default" onClick={showForm}>
+			<div style={{ position: "relative" }}>
+				<div style={{ position: "absolute", top: 16, left: 16, zIndex: 1000 }}>
+					<Button type="default" onClick={handleBackToForm}>
 						Back to Form
 					</Button>
-					<Button
-						type="primary"
-						onClick={saveBillingToAPI}
-						loading={createBillingMutation.isPending}
-					>
-						Save Invoice
-					</Button>
-				</Space>
+				</div>
 				<InvoicePreview
 					visible={true}
-					onClose={showForm}
+					onClose={handleBackToForm}
 					formData={previewData}
-					selectedVehicles={selectedVehicles}
-					companyName={companyName}
-					billingDate={billingDate}
-					settings={settings}
+					selectedVehicles={
+						vehiclesData?.data?.vehicles?.filter((v: Vehicle) =>
+							previewData?.vehicleIds?.includes(v._id)
+						) || []
+					}
+					companyName={previewData?.companyName}
+					billingDate={previewData?.billingDate}
+					settings={settingsData?.data as Settings}
 				/>
 			</div>
 		);
@@ -172,309 +336,338 @@ export const InvoiceGenerator: React.FC = () => {
 
 	// Render form view
 	return (
-		<div>
+		<div style={{ margin: "0 auto" }}>
 			<Form
 				form={form}
 				layout="vertical"
+				onFinish={onFinish}
+				autoComplete="off"
 				initialValues={{
-					recipientName: "",
-					recipientAddress: "",
-					projectLocation: "",
-					workingTime: "",
-					period: "",
+					billingDate: dayjs(),
+					workingTime: "9:00 AM to 6:00 PM",
+					period: "Monthly",
 					placeOfSupply: "Maharashtra",
-					billingItems: [
-						{
-							description: "",
-							hsnSac: "996601",
-							unit: "Day",
-							quantity: 1,
-							rate: 0
-						}
-					]
+					billingItems: billingItems
 				}}
 			>
-				{/* Company and Vehicle Selection */}
-				<Row gutter={16}>
-					<Col xs={24} sm={12} md={8}>
-						<Form.Item
-							label="Company Name"
-							name="companyName"
-							rules={[{ required: true, message: "Please enter company name" }]}
-						>
-							<Input
-								value={companyName}
-								onChange={(e) => setCompanyName(e.target.value)}
-								placeholder="Enter company name"
-							/>
-						</Form.Item>
-					</Col>
-					<Col xs={24} sm={12} md={8}>
-						<Form.Item
-							label="Select Vehicles"
-							name="vehicleIds"
-							rules={[
-								{
-									required: true,
-									message: "Please select at least one vehicle"
-								}
-							]}
-						>
-							<Select
-								mode="multiple"
-								placeholder="Select vehicles"
-								value={selectedVehicleIds}
-								onChange={handleVehicleChange}
-								showSearch
-								optionFilterProp="label"
-								filterOption={(input, option) =>
-									(option?.label?.toString().toLowerCase() ?? "").includes(
-										input.toLowerCase()
-									)
-								}
-								getPopupContainer={(trigger) =>
-									trigger.parentElement || document.body
-								} // Fix for large screen date picker
+				<Row gutter={24}>
+					{/* Company Details */}
+					<Col span={24}>
+						<Divider>
+							<Title
+								level={4}
+								style={{
+									textAlign: "center",
+									margin: "0",
+									color: themeColors.primary
+								}}
 							>
-								{vehicles.map((vehicle) => (
-									<Option
-										key={vehicle._id}
-										value={vehicle._id}
-										label={`${vehicle.vehicleNumber} (${vehicle.vehicleType})`}
-									>
-										{vehicle.vehicleNumber} ({vehicle.vehicleType})
-									</Option>
-								))}
-							</Select>
-						</Form.Item>
-					</Col>
-					<Col xs={24} sm={12} md={8}>
-						<Form.Item label="Billing Date" name="billingDate">
-							<DatePicker
-								style={{ width: "100%" }}
-								onChange={(date) => setBillingDate(date ? date.toDate() : null)}
-								placeholder="Select billing date"
-								value={billingDate ? dayjs(billingDate) : null}
-								getPopupContainer={(trigger) =>
-									trigger.parentElement || document.body
-								} // Fix for large screen date picker
-							/>
-						</Form.Item>
-					</Col>
-				</Row>
-
-				<Row gutter={16}></Row>
-
-				<Divider>Recipient Details</Divider>
-
-				<Row gutter={16}>
-					<Col xs={24} sm={12} md={12}>
-						<Form.Item
-							label="Recipient Name"
-							name="recipientName"
-							rules={[
-								{ required: true, message: "Please enter recipient name" }
-							]}
-						>
-							<Input placeholder="Enter recipient name" />
-						</Form.Item>
-					</Col>
-					<Col xs={24} sm={12} md={12}>
-						<Form.Item
-							label="Working Time"
-							name="workingTime"
-							rules={[{ required: true, message: "Please enter working time" }]}
-						>
-							<Input placeholder="e.g., Two Days" />
-						</Form.Item>
-					</Col>
-				</Row>
-
-				<Row gutter={16}>
-					<Col xs={24} sm={12} md={12}>
-						<Form.Item
-							label="Period"
-							name="period"
-							rules={[{ required: true, message: "Please enter period" }]}
-						>
-							<Input placeholder="e.g., September 2025" />
-						</Form.Item>
-					</Col>
-					<Col xs={24} sm={12} md={12}>
-						<Form.Item
-							label="Place of Supply"
-							name="placeOfSupply"
-							rules={[
-								{ required: true, message: "Please enter place of supply" }
-							]}
-						>
-							<Input placeholder="e.g., Maharashtra" />
-						</Form.Item>
-					</Col>
-				</Row>
-
-				<Row gutter={16}>
-					<Col xs={24} md={12}>
-						<Form.Item
-							label="Recipient Address"
-							name="recipientAddress"
-							rules={[
-								{ required: true, message: "Please enter recipient address" }
-							]}
-						>
-							<TextArea rows={3} placeholder="Enter recipient address" />
-						</Form.Item>
-					</Col>
-					<Col xs={24} md={12}>
-						<Form.Item
-							label="Project Location"
-							name="projectLocation"
-							rules={[
-								{ required: true, message: "Please enter project location" }
-							]}
-						>
-							<TextArea rows={3} placeholder="Enter project location" />
-						</Form.Item>
-					</Col>
-				</Row>
-				<Divider>Billing Items</Divider>
-
-				<Form.List name="billingItems">
-					{(fields, { add, remove }) => (
-						<>
-							{fields.map(({ key, name, ...restField }) => (
-								<Card
-									key={key}
-									size="small"
-									title={`Item ${name + 1}`}
-									extra={
-										fields.length > 1 && (
-											<Button type="link" danger onClick={() => remove(name)}>
-												Remove
-											</Button>
-										)
-									}
-									style={{ marginBottom: 16 }}
+								Company Details
+							</Title>
+						</Divider>
+						<Row gutter={16}>
+							<Col xs={24} md={12}>
+								<Form.Item
+									label="Company Name"
+									name="companyName"
+									rules={[
+										{ required: true, message: "Company name is required" }
+									]}
 								>
-									<Row gutter={16}>
-										<Col xs={24}>
-											<Form.Item
-												{...restField}
-												name={[name, "description"]}
-												label="Description"
-												rules={[
-													{
-														required: true,
-														message: "Please enter description"
-													}
-												]}
-											>
-												<TextArea
-													rows={2}
-													placeholder="Enter service description"
-												/>
-											</Form.Item>
-										</Col>
-									</Row>
+									<Input
+										placeholder="Enter company name"
+										prefix={<BankOutlined />}
+									/>
+								</Form.Item>
+							</Col>
+						</Row>
+					</Col>
 
-									<Row gutter={16}>
-										<Col xs={24} sm={6}>
-											<Form.Item
-												{...restField}
-												name={[name, "hsnSac"]}
-												label="HSN/SAC"
-												rules={[
-													{ required: true, message: "Please enter HSN/SAC" }
-												]}
-											>
-												<Input placeholder="e.g., 996601" />
-											</Form.Item>
-										</Col>
-										<Col xs={24} sm={6}>
-											<Form.Item
-												{...restField}
-												name={[name, "unit"]}
-												label="Unit"
-												rules={[
-													{ required: true, message: "Please enter unit" }
-												]}
-											>
-												<Input placeholder="e.g., Day" />
-											</Form.Item>
-										</Col>
-										<Col xs={24} sm={6}>
-											<Form.Item
-												{...restField}
-												name={[name, "quantity"]}
-												label="Quantity"
-												rules={[
-													{ required: true, message: "Please enter quantity" }
-												]}
-											>
-												<InputNumber
-													style={{ width: "100%" }}
-													min={0.01}
-													step={0.01}
-													placeholder="Enter quantity"
-												/>
-											</Form.Item>
-										</Col>
-										<Col xs={24} sm={6}>
-											<Form.Item
-												{...restField}
-												name={[name, "rate"]}
-												label="Rate"
-												rules={[
-													{ required: true, message: "Please enter rate" }
-												]}
-											>
-												<InputNumber
-													style={{ width: "100%" }}
-													min={0.01}
-													step={0.01}
-													placeholder="Enter rate"
-												/>
-											</Form.Item>
-										</Col>
-									</Row>
-
-									<Row gutter={16}></Row>
-								</Card>
-							))}
-
-							<Form.Item>
-								<Button
-									type="dashed"
-									onClick={() => add()}
-									style={{ width: "100%" }}
+					{/* Recipient Details */}
+					<Col span={24}>
+						<Divider>
+							<Title
+								level={4}
+								style={{
+									textAlign: "center",
+									margin: "8px 0",
+									color: themeColors.primary
+								}}
+							>
+								Recipient Details
+							</Title>
+						</Divider>
+						<Row gutter={16}>
+							<Col xs={24} md={12}>
+								<Form.Item
+									label="Recipient Name"
+									name="recipientName"
+									rules={[
+										{ required: true, message: "Recipient name is required" }
+									]}
 								>
-									+ Add Another Item
-								</Button>
-							</Form.Item>
-						</>
-					)}
-				</Form.List>
+									<Input
+										placeholder="Enter recipient name"
+										prefix={<UserOutlined />}
+									/>
+								</Form.Item>
+							</Col>
+							<Col xs={24} md={12}>
+								<Form.Item
+									label="Recipient Address"
+									name="recipientAddress"
+									rules={[
+										{ required: true, message: "Recipient address is required" }
+									]}
+								>
+									<Input.TextArea
+										placeholder="Enter recipient address"
+										autoSize={{ minRows: 2, maxRows: 4 }}
+									/>
+								</Form.Item>
+							</Col>
+						</Row>
+					</Col>
 
-				<Divider />
+					{/* Project Details */}
+					<Col span={24}>
+						<Divider>
+							<Title
+								level={4}
+								style={{
+									textAlign: "center",
+									margin: "8px 0",
+									color: themeColors.primary
+								}}
+							>
+								Project Details
+							</Title>
+						</Divider>
+						<Row gutter={16}>
+							<Col xs={24} md={8}>
+								<Form.Item
+									label="Billing Date"
+									name="billingDate"
+									rules={[
+										{ required: true, message: "Billing date is required" }
+									]}
+								>
+									<DatePicker
+										style={{ width: "100%" }}
+										placeholder="Select date"
+									/>
+								</Form.Item>
+							</Col>
+							<Col xs={24} md={8}>
+								<Form.Item
+									label="Working Time"
+									name="workingTime"
+									rules={[
+										{ required: true, message: "Working time is required" }
+									]}
+								>
+									<Input
+										placeholder="e.g., 9:00 AM to 6:00 PM"
+										prefix={<FieldNumberOutlined />}
+									/>
+								</Form.Item>
+							</Col>
+							<Col xs={24} md={8}>
+								<Form.Item
+									label="Period"
+									name="period"
+									rules={[{ required: true, message: "Period is required" }]}
+								>
+									<Input
+										placeholder="e.g., Monthly"
+										prefix={<FieldNumberOutlined />}
+									/>
+								</Form.Item>
+							</Col>
+						</Row>
+						<Row gutter={16}>
+							<Col xs={24} md={8}>
+								<Form.Item
+									label="Project Location"
+									name="projectLocation"
+									rules={[
+										{ required: true, message: "Project location is required" }
+									]}
+								>
+									<Input placeholder="Enter project location" />
+								</Form.Item>
+							</Col>
+							<Col xs={24} md={8}>
+								<Form.Item
+									label="Place of Supply"
+									name="placeOfSupply"
+									rules={[
+										{ required: true, message: "Place of supply is required" }
+									]}
+								>
+									<Input placeholder="Enter place of supply" />
+								</Form.Item>
+							</Col>
+							<Col xs={24} md={8}>
+								<Form.Item
+									label="Vehicles"
+									name="vehicleIds"
+									rules={[
+										{
+											required: true,
+											message: "Please select at least one vehicle"
+										}
+									]}
+								>
+									<Select
+										mode="multiple"
+										maxTagCount={1}
+										placeholder="Select vehicles"
+										loading={isVehiclesLoading}
+										options={
+											vehiclesData?.data?.vehicles?.map((vehicle: Vehicle) => ({
+												label: `${vehicle.vehicleNumber} (${vehicle.vehicleType})`,
+												value: vehicle._id
+											})) || []
+										}
+									/>
+								</Form.Item>
+							</Col>
+						</Row>
+					</Col>
 
-				<Row gutter={16}>
-					<Col>
-						<Button type="default" onClick={showPreview}>
-							Preview Invoice
-						</Button>
-						<Button
-							type="primary"
-							onClick={saveBillingToAPI}
-							loading={createBillingMutation.isPending}
-							style={{ marginLeft: "10px" }}
-						>
-							{createBillingMutation.isPending ? "Saving..." : "Save Invoice"}
-						</Button>
+					{/* Billing Items */}
+					<Col span={24}>
+						<Divider>
+							<Title
+								level={4}
+								style={{
+									textAlign: "center",
+									margin: "8px 0",
+									color: themeColors.primary
+								}}
+							>
+								Billing Items
+							</Title>
+						</Divider>
+						<Table
+							dataSource={billingItems}
+							columns={columns}
+							pagination={false}
+							rowKey={(_, index) => index?.toString() || "0"}
+							scroll={{ x: 800 }}
+							locale={{
+								emptyText: "No billing items added"
+							}}
+						/>
+
+						<Divider style={{ margin: "8px 0" }} />
+
+						<div style={{ textAlign: "right" }}>
+							<Text strong style={{ fontSize: 18 }}>
+								Grand Total: ₹{calculateGrandTotal().toFixed(2)}
+							</Text>
+						</div>
+
+						<Flex justify="center" style={{ margin: "16px 0" }}>
+							<Button
+								type="default"
+								onClick={addBillingItem}
+								icon={<PlusOutlined />}
+							>
+								Add Item
+							</Button>
+						</Flex>
+					</Col>
+
+					{/* Bank Details */}
+					<Col span={24}>
+						<Divider>
+							<Title
+								level={4}
+								style={{
+									textAlign: "center",
+									margin: "8px 0",
+									color: themeColors.primary
+								}}
+							>
+								Bank Details
+							</Title>
+						</Divider>
+						<Row gutter={16}>
+							<Col xs={24} md={12}>
+								<Form.Item
+									label="Bank Name"
+									name={["bankDetails", "bankName"]}
+									rules={[{ required: true, message: "Bank name is required" }]}
+								>
+									<Input placeholder="Enter bank name" />
+								</Form.Item>
+							</Col>
+							<Col xs={24} md={12}>
+								<Form.Item
+									label="Branch"
+									name={["bankDetails", "branchName"]}
+									rules={[{ required: true, message: "Branch is required" }]}
+								>
+									<Input placeholder="Enter branch name" />
+								</Form.Item>
+							</Col>
+						</Row>
+						<Row gutter={16}>
+							<Col xs={24} md={12}>
+								<Form.Item
+									label="Account Number"
+									name={["bankDetails", "accountNumber"]}
+									rules={[
+										{ required: true, message: "Account number is required" }
+									]}
+								>
+									<Input placeholder="Enter account number" />
+								</Form.Item>
+							</Col>
+							<Col xs={24} md={12}>
+								<Form.Item
+									label="IFSC Code"
+									name={["bankDetails", "ifscCode"]}
+									rules={[{ required: true, message: "IFSC code is required" }]}
+								>
+									<Input placeholder="Enter IFSC code" />
+								</Form.Item>
+							</Col>
+						</Row>
+					</Col>
+
+					{/* Submit Button */}
+					<Col span={24}>
+						<Flex justify="center" gap="large">
+							<Button
+								type="default"
+								icon={<EyeOutlined />}
+								onClick={handlePreview}
+							>
+								Preview Invoice
+							</Button>
+							<Button type="primary" htmlType="submit" loading={isCreating}>
+								Generate Invoice
+							</Button>
+						</Flex>
 					</Col>
 				</Row>
 			</Form>
+
+			{/* Success Message */}
+			{createdBilling && createdBilling.status && (
+				<Alert
+					message="Success"
+					description={createdBilling.message}
+					type="success"
+					showIcon
+					style={{ marginTop: 24 }}
+				/>
+			)}
 		</div>
 	);
 };
 
-export default InvoiceGenerator;
+export default Invoice;

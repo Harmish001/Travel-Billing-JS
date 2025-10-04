@@ -1,69 +1,57 @@
 "use client";
-import { Card, Statistic, List, Typography, Space, Empty, Spin } from "antd";
-import { CarOutlined, ClockCircleOutlined } from "@ant-design/icons";
-import { useVehicleStats } from "@/src/hooks/vehicleHook";
 
-const { Title, Text } = Typography;
+import React from "react";
+import { Card, Row, Col, Statistic, Typography } from "antd";
+import { CarOutlined } from "@ant-design/icons";
+import { useVehicleStats } from "@/src/hooks/vehicleHook";
+import { themeColors } from "@/src/styles/theme";
+import Loader from "@/src/ui/Loader";
 
 const VehicleStats: React.FC = () => {
 	const { data, isLoading, error } = useVehicleStats();
 
 	if (isLoading) {
-		return <Spin />;
+		return <Loader />;
 	}
 
-	if (error || !data?.status) {
-		return (
-			<Card>
-				<Empty description="Failed to load vehicle statistics" />
-			</Card>
-		);
+	if (error) {
+		return null; // Don't show stats if there's an error
 	}
 
-	const stats = data.data;
+	const stats = data?.data || {
+		totalVehicles: 0,
+		recentVehicles: [],
+	};
 
 	return (
-		<Space direction="vertical" style={{ width: "100%" }} size="large">
-			<Card>
-				<Statistic
-					title="Total Vehicles"
-					value={stats?.totalVehicles || 0}
-					prefix={<CarOutlined />}
-					valueStyle={{ color: "#1890ff" }}
-				/>
-			</Card>
-
-			<Card title={<Title level={4}>Recent Vehicles</Title>}>
-				{stats?.recentVehicles && stats.recentVehicles.length > 0 ? (
-					<List
-						itemLayout="horizontal"
-						dataSource={stats.recentVehicles}
-						renderItem={(vehicle) => (
-							<List.Item>
-								<List.Item.Meta
-									avatar={
-										<CarOutlined
-											style={{ fontSize: "16px", color: "#1890ff" }}
-										/>
-									}
-									title={vehicle.vehicleNumber}
-									description={
-										<Space>
-											<ClockCircleOutlined style={{ fontSize: "12px" }} />
-											<Text type="secondary" style={{ fontSize: "12px" }}>
-												Added {new Date(vehicle.createdAt).toLocaleDateString()}
-											</Text>
-										</Space>
-									}
-								/>
-							</List.Item>
-						)}
+		<Row gutter={[16, 16]}>
+			<Col xs={24} sm={12} lg={6}>
+				<Card
+					style={{
+						background: themeColors.white,
+						border: `1px solid ${themeColors.neutralLight}`,
+						borderRadius: 12,
+						boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+						height: "100%"
+					}}
+				>
+					<Statistic
+						title={
+							<span style={{ color: themeColors.neutralDark, fontSize: 14 }}>
+								Total Vehicles
+							</span>
+						}
+						value={stats.totalVehicles}
+						prefix={<CarOutlined style={{ color: themeColors.primary }} />}
+						valueStyle={{
+							color: themeColors.neutralDark,
+							fontSize: 24,
+							fontWeight: "bold"
+						}}
 					/>
-				) : (
-					<Empty description="No recent vehicles" />
-				)}
-			</Card>
-		</Space>
+				</Card>
+			</Col>
+		</Row>
 	);
 };
 
