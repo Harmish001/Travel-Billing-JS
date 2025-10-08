@@ -80,8 +80,9 @@ export interface IBillingAnalyticsResponse {
 	status: boolean;
 	message: string;
 	data: {
-		totalInvoices: number;
+		totalBills: number;
 		revenueThisMonth: number;
 		totalVehicles: number;
+		totalRevenue: number;
 	};
 }

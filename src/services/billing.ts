@@ -64,6 +64,6 @@ export const calculateBillingAmounts = async (
 
 // Add the new analytics function
 export const getBillingAnalytics = async (): Promise<IBillingAnalyticsResponse> => {
-	const { data } = await axiosInstance.get<IBillingAnalyticsResponse>("/billings/analytics");
+	const { data } = await axiosInstance.get<IBillingAnalyticsResponse>("/billings/stats");
 	return data;
 };

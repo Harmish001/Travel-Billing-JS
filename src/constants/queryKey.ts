@@ -4,10 +4,14 @@ export const QUERY_KEYS = {
 		BY_ID: "vehicleById",
 		STATS: "vehicleStats"
 	},
+	DRIVER: {
+		ALL: "allDrivers",
+		BY_ID: "driverById"
+	},
 	BILLING: {
 		ALL: "allBillings",
 		BY_ID: "billingById",
-		ANALYTICS: "billingAnalytics"  // Add this line
+		ANALYTICS: "billingAnalytics"
 	},
 	SETTINGS: {
 		DETAILS: "settingsDetails"

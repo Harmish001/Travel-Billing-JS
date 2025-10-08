@@ -76,3 +76,4 @@ export interface ApiResponse<T = any> {
 export * from './iSettings';
 export * from './iBilling';
 export * from './iVehicle';
+export * from './iDriver';

@@ -2,28 +2,29 @@
 
 import React, { useState, useEffect } from "react";
 import {
-	Layout,
-	Menu,
-	Button,
-	Drawer,
-	Typography,
-	Space,
-	Avatar,
-	Dropdown,
-	MenuProps,
-	Spin
+  Layout,
+  Menu,
+  Button,
+  Drawer,
+  Typography,
+  Space,
+  Avatar,
+  Dropdown,
+  MenuProps,
+  Spin,
 } from "antd";
 import {
-	MenuOutlined,
-	FileTextOutlined,
-	LogoutOutlined,
-	UserOutlined,
-	DashboardOutlined,
-	MenuFoldOutlined,
-	MenuUnfoldOutlined,
-	SettingOutlined,
-	CarOutlined,
-	CloseOutlined
+  MenuOutlined,
+  FileTextOutlined,
+  LogoutOutlined,
+  UserOutlined,
+  DashboardOutlined,
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
+  SettingOutlined,
+  CarOutlined,
+  CloseOutlined,
+  UsergroupAddOutlined
 } from "@ant-design/icons";
 import { useAuth } from "@/src/context/AuthContext";
 import { useRouter } from "next/navigation";
@@ -95,6 +96,16 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({
 			}
 		},
 		{
+			key: "drivers",
+			icon: <UsergroupAddOutlined />,
+			label: "Drivers",
+			onClick: () => {
+				setLoading(true);
+				router.push("/drivers");
+				setMobileMenuVisible(false);
+			}
+		},
+		{
 			key: "settings",
 			icon: <SettingOutlined />,
 			label: "Settings",
@@ -124,7 +135,10 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({
 			key: "logout",
 			icon: <LogoutOutlined />,
 			label: "Logout",
-			onClick: () => handleLogout(),
+			onClick: () => {
+				logout();
+				router.push("/login");
+			},
 			danger: true
 		}
 	];
@@ -142,7 +156,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({
 				<div
 					style={{
 						padding: "16px",
-						textAlign: "center",
+            textAlign: "center",
 						borderBottom: `1px solid ${themeColors.neutralLight}`
 					}}
 					className="desktopview-logo"

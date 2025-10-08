@@ -28,14 +28,14 @@ const Dashboard: React.FC = () => {
 	const stats = [
 		{
 			title: "Total Invoices",
-			value: analyticsData?.data?.totalInvoices || 0,
+			value: analyticsData?.data?.totalBills || 0,
 			prefix: <FileTextOutlined style={{ color: themeColors.primary }} />,
 			suffix: "",
 			loading: isAnalyticsLoading
 		},
 		{
 			title: "Revenue This Month",
-			value: analyticsData?.data?.revenueThisMonth || 0,
+			value: analyticsData?.data?.totalRevenue || 0,
 			prefix: <FaRupeeSign style={{ color: themeColors.secondary }} />,
 			suffix: "",
 			precision: 2,
@@ -70,10 +70,10 @@ const Dashboard: React.FC = () => {
 						display: "flex"
 					}}
 				>
-					Welcome back&nbsp;
-					<strong style={{ color: themeColors.primary }}>
-						{user?.user?.businessName}
-					</strong>
+					Welcome back &nbsp;{" "}
+					<Title level={2} style={{ color: themeColors.primary }}>
+						{user?.user?.businessName}!
+					</Title>
 				</Title>
 				<Paragraph
 					style={{ fontSize: 16, color: themeColors.neutralDark, opacity: 0.8 }}
