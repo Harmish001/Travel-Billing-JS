@@ -15,5 +15,9 @@ export const QUERY_KEYS = {
 	},
 	SETTINGS: {
 		DETAILS: "settingsDetails"
+	},
+	BOOKINGS: {
+		ALL: "allBookings",
+		MONTH: "bookingsByMonth"
 	}
 };

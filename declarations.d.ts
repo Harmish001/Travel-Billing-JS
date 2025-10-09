@@ -11,3 +11,7 @@ declare module "next-pwa" {
   function withPWA(config: PWAConfig): (nextConfig: NextConfig) => NextConfig;
   export = withPWA;
 }
+
+declare module "dayjs";
+declare module "dayjs/plugin/weekday";
+declare module "dayjs/plugin/isoWeek";

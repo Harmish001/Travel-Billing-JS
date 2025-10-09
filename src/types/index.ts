@@ -77,3 +77,4 @@ export * from './iSettings';
 export * from './iBilling';
 export * from './iVehicle';
 export * from './iDriver';
+export * from './iBooking';

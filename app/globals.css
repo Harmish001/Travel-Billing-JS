@@ -141,6 +141,45 @@ body > div:last-child {
 	z-index: 9999;
 }
 
+/* Bookings page responsive styles */
+.mobile-view {
+  display: block;
+}
+
+.desktop-view {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .mobile-view {
+    display: none;
+  }
+  
+  .desktop-view {
+    display: block;
+  }
+}
+
+/* Hide mobile menu button by default, show on small screens */
+.mobile-menu-button {
+  display: none !important;
+}
+
+/* Show mobile menu button on screens smaller than the sidebar breakpoint */
+@media (max-width: 991px) {
+  .mobile-menu-button {
+    display: flex !important;
+  }
+  
+  .desktop-collapse-button {
+    display: none !important;
+  }
+  
+  .desktop-sider {
+    display: none !important;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
 	html {
 		color-scheme: dark;

@@ -24,7 +24,8 @@ import {
   SettingOutlined,
   CarOutlined,
   CloseOutlined,
-  UsergroupAddOutlined
+  UsergroupAddOutlined,
+  CalendarOutlined
 } from "@ant-design/icons";
 import { useAuth } from "@/src/context/AuthContext";
 import { useRouter } from "next/navigation";
@@ -102,6 +103,16 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({
 			onClick: () => {
 				setLoading(true);
 				router.push("/drivers");
+				setMobileMenuVisible(false);
+			}
+		},
+		{
+			key: "bookings",
+			icon: <CalendarOutlined />,
+			label: "Bookings",
+			onClick: () => {
+				setLoading(true);
+				router.push("/bookings");
 				setMobileMenuVisible(false);
 			}
 		},
