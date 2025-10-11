@@ -1,5 +1,6 @@
 export const VEHICLE_TYPES = [
 	{ value: "Car", label: "Car" },
+	{ value: "Mini Bus", label: "Mini Bus" },
 	{ value: "Truck", label: "Truck" },
 	{ value: "Van", label: "Van" },
 	{ value: "Trailer", label: "Trailer" },

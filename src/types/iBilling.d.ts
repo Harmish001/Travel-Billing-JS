@@ -26,6 +26,7 @@ export interface IBillingRequest {
 	placeOfSupply: string;
 	billingItems: IBillingItem[];
 	bankDetails: IBankDetails;
+	gstEnabled?: boolean;
 }
 
 export interface IBillingResponse {
@@ -50,6 +51,7 @@ export interface IBillingResponse {
 	isCompleted: boolean;
 	createdAt: Date;
 	updatedAt: Date;
+	gstEnabled?: boolean;
 }
 
 export interface IBillingPagination {

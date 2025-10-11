@@ -38,12 +38,14 @@ interface InvoicePreviewProps {
 			quantity: number;
 			rate: number;
 		}>;
+		gstEnabled?: boolean;
 	};
 	selectedVehicles?: Vehicle[];
 	companyName?: string;
 	billingDate?: Date | null;
 	settings?: Settings | null;
 	existingInvoice?: IBillingResponse;
+	gstEnabled?: boolean;
 }
 
 const InvoicePreview: React.FC<InvoicePreviewProps> = ({
@@ -54,7 +56,8 @@ const InvoicePreview: React.FC<InvoicePreviewProps> = ({
 	companyName,
 	billingDate,
 	settings: externalSettings,
-	existingInvoice
+	existingInvoice,
+	gstEnabled
 }) => {
 	const { data: settingsData } = useSettings();
 	const settings: Settings | null =
@@ -76,7 +79,8 @@ const InvoicePreview: React.FC<InvoicePreviewProps> = ({
 				invoiceDate: formatDate(new Date(existingInvoice.createdAt)),
 				supplierGstin: settings?.gstNumber || "24ELVPV5086R1ZB",
 				supplierPan: settings?.panNumber || "ELVPV5086R",
-				taxInvoiceNo: existingInvoice._id || "INV-" + new Date().getTime()
+				taxInvoiceNo: existingInvoice._id || "INV-" + new Date().getTime(),
+				gstEnabled: existingInvoice.gstEnabled
 		  }
 		: {
 				recipientName: formData?.recipientName || "",
@@ -91,7 +95,8 @@ const InvoicePreview: React.FC<InvoicePreviewProps> = ({
 					: formatDate(new Date()),
 				supplierGstin: settings?.gstNumber || "24ELVPV5086R1ZB",
 				supplierPan: settings?.panNumber || "ELVPV5086R",
-				taxInvoiceNo: "INV-" + new Date().getTime()
+				taxInvoiceNo: "INV-" + new Date().getTime(),
+				gstEnabled: formData?.gstEnabled
 		  };
 
 	// For existing invoices, get vehicles from the invoice data
@@ -117,8 +122,17 @@ const InvoicePreview: React.FC<InvoicePreviewProps> = ({
 		}, 0);
 	};
 
-	const calculateGst = () => Math.round(calculateSubtotal() * 0.09);
-	const calculateTotal = () => calculateSubtotal() + calculateGst() * 2;
+	const calculateGst = () => {
+			const isGstEnabled = isExistingInvoice ? (existingInvoice as any).gstEnabled ?? true : gstEnabled ?? formData?.gstEnabled ?? true;
+			return isGstEnabled ? Math.round(calculateSubtotal() * 0.09) : 0;
+		};
+		
+		const calculateTotal = () => {
+			const isGstEnabled = isExistingInvoice ? (existingInvoice as any).gstEnabled ?? true : gstEnabled ?? formData?.gstEnabled ?? true;
+			const subtotal = calculateSubtotal();
+			const gstAmount = calculateGst();
+			return isGstEnabled ? subtotal + gstAmount * 2 : subtotal;
+		};
 
 	const handleExportPDF = async () => {
 		try {
@@ -498,7 +512,8 @@ const InvoicePreview: React.FC<InvoicePreviewProps> = ({
 					style={{
 						width: "100%",
 						borderCollapse: "collapse",
-						marginBottom: "10px"
+						marginBottom: "10px",
+						textAlign: "start"
 					}}
 				>
 					<tbody>
@@ -812,7 +827,7 @@ const InvoicePreview: React.FC<InvoicePreviewProps> = ({
 								</td>
 							</tr>
 						))}
-						<tr>
+						{displayData.gstEnabled && <tr>
 							<td
 								colSpan={6}
 								style={{
@@ -834,8 +849,8 @@ const InvoicePreview: React.FC<InvoicePreviewProps> = ({
 							>
 								{calculateGst()}
 							</td>
-						</tr>
-						<tr>
+						</tr>}
+						{displayData.gstEnabled &&<tr>
 							<td
 								colSpan={6}
 								style={{
@@ -857,8 +872,8 @@ const InvoicePreview: React.FC<InvoicePreviewProps> = ({
 							>
 								{calculateGst()}
 							</td>
-						</tr>
-						<tr>
+						</tr>}
+						{displayData.gstEnabled &&<tr>
 							<td
 								colSpan={6}
 								style={{
@@ -880,7 +895,7 @@ const InvoicePreview: React.FC<InvoicePreviewProps> = ({
 							>
 								0
 							</td>
-						</tr>
+						</tr>}
 						<tr>
 							<td
 								colSpan={6}

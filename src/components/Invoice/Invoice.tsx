@@ -14,7 +14,8 @@ import {
 	Divider,
 	Alert,
 	message,
-	Flex
+	Flex,
+	Switch
 } from "antd";
 import {
 	PlusOutlined,
@@ -63,7 +64,6 @@ const Invoice: React.FC = () => {
 			totalAmount: 0
 		}
 	]);
-
 	const { data: settingsData, isLoading: isSettingsLoading } = useSettings();
 	const { data: vehiclesData, isLoading: isVehiclesLoading } = useVehicles();
 	const {
@@ -82,15 +82,16 @@ const Invoice: React.FC = () => {
 		}
 	}, [settingsData, form]);
 
-	useEffect(() => {
-		if (vehiclesData?.data?.vehicles && vehiclesData.data.vehicles.length > 0) {
-			const defaultVehicleIds = vehiclesData.data.vehicles.map(
-				(vehicle) => vehicle._id
-			);
+	// sets all vehicles default 
+	// useEffect(() => {
+	// 	if (vehiclesData?.data?.vehicles && vehiclesData.data.vehicles.length > 0) {
+	// 		const defaultVehicleIds = vehiclesData.data.vehicles.map(
+	// 			(vehicle) => vehicle._id
+	// 		);
 
-			form.setFieldValue("vehicleIds", defaultVehicleIds);
-		}
-	}, [vehiclesData, form]);
+	// 		form.setFieldValue("vehicleIds", defaultVehicleIds);
+	// 	}
+	// }, [vehiclesData, form]);
 
 	// Handle form submission
 	const onFinish = (values: InvoiceFormValues) => {
@@ -113,7 +114,8 @@ const Invoice: React.FC = () => {
 				...values.bankDetails,
 				// @ts-ignore // DO NOT CHANGE
 				branch: values.bankDetails.branchName
-			}
+			},
+			gstEnabled: values.gstEnabled ?? true // Default to true if not set
 		};
 
 		createBilling(billingData, {
@@ -190,7 +192,18 @@ const Invoice: React.FC = () => {
 
 	// Calculate grand total
 	const calculateGrandTotal = () => {
-		return billingItems.reduce((sum, item) => sum + (item.totalAmount || 0), 0);
+		const subtotal = billingItems.reduce((sum, item) => sum + (item.totalAmount || 0), 0);
+		
+		// Get GST status from form
+		const isGstEnabled = form.getFieldValue("gstEnabled") ?? true;
+		
+		// If GST is enabled, add 18% GST to the subtotal
+		if (isGstEnabled) {
+			const gstAmount = subtotal * 0.18;
+			return subtotal + gstAmount;
+		}
+		
+		return subtotal;
 	};
 
 	// Billing items table columns
@@ -358,7 +371,8 @@ const Invoice: React.FC = () => {
 					workingTime: "9:00 AM to 6:00 PM",
 					period: "Monthly",
 					placeOfSupply: "Maharashtra",
-					billingItems: billingItems
+					billingItems: billingItems,
+					gstEnabled: true // Default GST is true
 				}}
 			>
 				<Row gutter={24}>
@@ -545,6 +559,17 @@ const Invoice: React.FC = () => {
 								</Form.Item>
 							</Col>
 						</Row>
+						<Row gutter={16}>
+							<Col xs={24} md={8}>
+								<Form.Item
+									label="GST"
+									name="gstEnabled"
+									valuePropName="checked"
+								>
+									<Switch defaultChecked />
+								</Form.Item>
+							</Col>
+						</Row>
 					</Col>
 
 					{/* Billing Items */}
@@ -576,7 +601,9 @@ const Invoice: React.FC = () => {
 
 						<div style={{ textAlign: "right" }}>
 							<Text strong style={{ fontSize: 18 }}>
-								Grand Total: ₹{calculateGrandTotal().toFixed(2)}
+								Grand Total{" "}
+								{form.getFieldValue("gstEnabled") ? "Inclusive of Tax" : ""} : ₹
+								{calculateGrandTotal().toFixed(2)}
 							</Text>
 						</div>
 
