@@ -8,6 +8,10 @@ export const QUERY_KEYS = {
 		ALL: "allDrivers",
 		BY_ID: "driverById"
 	},
+	DUTY: {
+		ALL: "allDuties",
+		BY_ID: "dutyById"
+	},
 	BILLING: {
 		ALL: "allBillings",
 		BY_ID: "billingById",

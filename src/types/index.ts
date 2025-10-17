@@ -73,8 +73,9 @@ export interface ApiResponse<T = any> {
 }
 
 // Re-export settings types
-export * from './iSettings';
-export * from './iBilling';
-export * from './iVehicle';
-export * from './iDriver';
-export * from './iBooking';
+export * from "./iVehicle";
+export * from "./iDriver";
+export * from "./iBilling";
+export * from "./iSettings";
+export * from "./iBooking";
+export * from "./iDuty";

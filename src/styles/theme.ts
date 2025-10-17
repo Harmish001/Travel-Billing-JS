@@ -53,14 +53,14 @@ export const antdTheme = {
     colorSplit: "#F0F0F0",
 
     // Component specific
-    borderRadius: 20,
-    borderRadiusLG: 20,
-    borderRadiusSM: 20,
-    borderRadiusXS: 20,
+    borderRadius: 12,
+    borderRadiusLG: 12,
+    borderRadiusSM: 8,
+    borderRadiusXS: 4,
 
     // Spacing
-    padding: 16,
-    margin: 16,
+    // padding: 16,
+    // margin: 16,
 
     // Font
     fontFamily:
@@ -80,7 +80,7 @@ export const antdTheme = {
       triggerBg: themeColors.primary,
       triggerColor: themeColors.white,
       headerBg: themeColors.white,
-      headerPadding: "0 24px",
+      headerPadding: "0 16px",
       bodyBg: themeColors.neutralLight,
     },
 
@@ -93,7 +93,7 @@ export const antdTheme = {
       itemHoverColor: themeColors.primary,
       iconSize: 18,
       itemMarginBlock: 4,
-      itemBorderRadius: 16,
+      itemBorderRadius: 12,
     },
 
     // Button component customization
@@ -110,10 +110,10 @@ export const antdTheme = {
       // Secondary button using accent colors
       colorWarning: themeColors.white,
       colorWarningBg: themeColors.secondary,
-      borderRadius: 20,
-      borderRadiusLG: 20,
-      borderRadiusSM: 20,
-      borderRadiusXS: 20
+      borderRadius: 16,
+      borderRadiusLG: 16,
+      borderRadiusSM: 16,
+      borderRadiusXS: 16
     },
 
     // Card component customization
@@ -127,6 +127,12 @@ export const antdTheme = {
       titleMarginBottom: 16,
       titleMarginTop: 0,
     },
+    Input: {
+      paddingBlock: 6
+    },
+    Select: {
+      controlHeight: 36
+    }
   },
 };
 

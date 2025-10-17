@@ -82,7 +82,42 @@ const Invoice: React.FC = () => {
 		}
 	}, [settingsData, form]);
 
-	// sets all vehicles default 
+	// Prefill form with duty data if available
+	useEffect(() => {
+		const dutyInvoiceData = localStorage.getItem("dutyInvoiceData");
+		if (dutyInvoiceData) {
+			try {
+				const data = JSON.parse(dutyInvoiceData);
+				const vehicles = vehiclesData?.data?.vehicles.find(
+					(vehicle) => vehicle._id === data.vehicleId._id
+				);
+				// Create a billing item based on duty data
+				const billingItem = {
+					description: `Hiring Charges for ${vehicles?.vehicleType}`,
+					hsnSac: "996601",
+					unit: "Km",
+					quantity: 1,
+					rate: (data.distanceTraveled || 0) * (data.ratePerKm || 0),
+					totalAmount: (data.distanceTraveled || 0) * (data.ratePerKm || 0)
+				};
+
+				// Update form fields
+				form.setFieldsValue({
+					companyName: data.companyName,
+					recipientName: data.clientName,
+					projectLocation: `${data.pickupLocation} to ${data.dropLocation}`,
+					billingItems: [billingItem],
+					vehicleIds: { label: vehicles?.vehicleNumber, value: vehicles?._id }
+				});
+				// Remove the data from localStorage
+				localStorage.removeItem("dutyInvoiceData");
+			} catch (error) {
+				console.error("Error parsing duty invoice data:", error);
+			}
+		}
+	}, [form]);
+
+	// sets all vehicles default
 	// useEffect(() => {
 	// 	if (vehiclesData?.data?.vehicles && vehiclesData.data.vehicles.length > 0) {
 	// 		const defaultVehicleIds = vehiclesData.data.vehicles.map(
@@ -192,17 +227,20 @@ const Invoice: React.FC = () => {
 
 	// Calculate grand total
 	const calculateGrandTotal = () => {
-		const subtotal = billingItems.reduce((sum, item) => sum + (item.totalAmount || 0), 0);
-		
+		const subtotal = billingItems.reduce(
+			(sum, item) => sum + (item.totalAmount || 0),
+			0
+		);
+
 		// Get GST status from form
 		const isGstEnabled = form.getFieldValue("gstEnabled") ?? true;
-		
+
 		// If GST is enabled, add 18% GST to the subtotal
 		if (isGstEnabled) {
 			const gstAmount = subtotal * 0.18;
 			return subtotal + gstAmount;
 		}
-		
+
 		return subtotal;
 	};
 
@@ -383,7 +421,7 @@ const Invoice: React.FC = () => {
 								level={4}
 								style={{
 									textAlign: "center",
-									margin: "0",
+									margin: 0,
 									color: themeColors.primary
 								}}
 							>
@@ -415,7 +453,7 @@ const Invoice: React.FC = () => {
 								level={4}
 								style={{
 									textAlign: "center",
-									margin: "8px 0",
+									margin: 0,
 									color: themeColors.primary
 								}}
 							>
@@ -461,7 +499,7 @@ const Invoice: React.FC = () => {
 								level={4}
 								style={{
 									textAlign: "center",
-									margin: "8px 0",
+									margin: 0,
 									color: themeColors.primary
 								}}
 							>
@@ -579,7 +617,7 @@ const Invoice: React.FC = () => {
 								level={4}
 								style={{
 									textAlign: "center",
-									margin: "8px 0",
+									margin: 0,
 									color: themeColors.primary
 								}}
 							>
@@ -625,7 +663,7 @@ const Invoice: React.FC = () => {
 								level={4}
 								style={{
 									textAlign: "center",
-									margin: "8px 0",
+									margin: 0,
 									color: themeColors.primary
 								}}
 							>
